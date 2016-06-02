@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="ControlsExample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlsExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dc="using:DewUserControls"
+    mc:Ignorable="d">
+
+    <dc:DewHamburgerMenu>
+        <dc:DewHamburgerMenu.PaneContent>
+            <ListView ItemsSource="{x:Bind ViewModel.MenuItems, Mode=OneWay}">
+                <DataTemplate x:DataType="local:MainMenuItem">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <FontIcon Glyph="{x:Bind Glyph, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="WhiteSmoke" />
+                        <TextBlock Grid.Column="1" Text="{x:Bind Text,Mode=OneWay}" Foreground="WhiteSmoke"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView>
+        </dc:DewHamburgerMenu.PaneContent>
+        <Grid>
+            
+        </Grid>
+    </dc:DewHamburgerMenu>
+</Page>

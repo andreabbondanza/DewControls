@@ -1,0 +1,123 @@
+﻿<UserControl
+    x:Class="DewUserControls.DewHamburgerMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DewUserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dc="using:DewCommonControlsLibrary.DewCommonControlsLibraryConverters"
+    xmlns:dcp="using:DewUserControls.DewHamburgerMenuPresentation.Converters"
+    mc:Ignorable="d"
+    x:Name="HamburgerControl"
+    VerticalAlignment="Stretch" 
+    HorizontalAlignment="Stretch"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <dc:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <dcp:HamburgerTypeToDisplayMode x:Key="HamburgerTypeToDisplayMode" />
+        <dcp:HamburgerTypeToPanePlace x:Key="HamburgerTypeToPanePlace" />
+        <dcp:HamburgerTypeToHorizontalAlighment x:Key="HamburgerTypeToHorizontalAlighment"/>
+        <dcp:HamburgerTypeToHamburgerPositionColumn x:Key="HamburgerTypeToHamburgerPositionColumn"/>
+        <dcp:HamburgerTypeToColumnWidth x:Key="HamburgerTypeToColumnWidth"/>
+        <!-- hamburger animations-->
+        <Storyboard x:Key="ToArrow">
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="-35" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="-8" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="TranslateX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="3" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="TranslateY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="1" To="0.5" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="ScaleX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="1" To="0.7" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="ScaleY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="-3" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="TranslateX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="1" To="0.8" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="ScaleX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="1" To="0.7" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="ScaleY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="35" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="-8" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="TranslateX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="-3" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="TranslateY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="1" To="0.5" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="ScaleX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="1" To="0.7" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="ScaleY"/>
+        </Storyboard>
+        <Storyboard x:Key="ToHamburgerFromArrow">
+            <DoubleAnimation Duration="0:0:0.2" From="-35" To="0" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="-8" To="0" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="TranslateX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="3" To="0" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="TranslateY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0.5" To="1" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="ScaleX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0.7" To="1" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="ScaleY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="-3" To="0" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="TranslateX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0.8" To="1" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="ScaleX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0.7" To="1" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="ScaleY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="35" To="0" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="-8" To="0" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="TranslateX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="-3" To="0" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="TranslateY"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0.5" To="1" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="ScaleX"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0.7" To="1" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="ScaleY"/>
+        </Storyboard>
+        <Storyboard x:Key="ToVertical">
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="Rotation"/>            
+        </Storyboard>
+        <Storyboard x:Key="ToHamburgerFromVertical">
+            <DoubleAnimation Duration="0:0:0.2" From="360" To="0" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="360" To="0" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="Rotation"/>
+            <DoubleAnimation Duration="0:0:0.2" From="360" To="0" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="Rotation"/>
+        </Storyboard>
+        <!-- end -->
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="{x:Bind BarBackgroundColor,Mode=OneWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{x:Bind HamburgerType, Converter={StaticResource HamburgerTypeToColumnWidth},ConverterParameter=first,Mode=OneWay}"/>
+                <ColumnDefinition Width="{x:Bind HamburgerType, Converter={StaticResource HamburgerTypeToColumnWidth},ConverterParameter=second ,Mode=OneWay}"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHamburgerPositionColumn},ConverterParameter=first, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="HamburgerButton_Tapped">
+                <Grid.Background>
+                    <SolidColorBrush x:Name="HamburgerBackgroundColor" Color="{x:Bind HamburgerBackground,Mode=OneWay}"></SolidColorBrush>
+                </Grid.Background>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        x:Name="HamburgerButton">
+                    <Rectangle x:Name="FirstLine" Margin="5,2" Fill="{x:Bind HamburgerForeground,Mode=OneWay}" Width="20" Height="2" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform Rotation="0" x:Name="FirstLineTransform" TranslateX="0" ScaleX="1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle x:Name="SecondLine" Margin="5,2" Fill="{x:Bind HamburgerForeground,Mode=OneWay}" Width="20" Height="2" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform Rotation="0" x:Name="SecondLineTransform" TranslateX="0" ScaleX="1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Rectangle x:Name="ThirdLine" Margin="5,2" Fill="{x:Bind HamburgerForeground,Mode=OneWay}" Width="20" Height="2" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform Rotation="0" x:Name="ThirdLineTransform" TranslateX="0" ScaleX="1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHamburgerPositionColumn},ConverterParameter=second, Mode=OneWay}">
+                <ContentControl Content="{x:Bind BarContent,Mode=OneWay}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <SplitView IsPaneOpen="{x:Bind IsPaneOpened,Mode=TwoWay}"  Background="{x:Bind ContentBackground, Mode=OneWay}" PaneBackground="{x:Bind PaneBackground,Mode=OneWay}"
+                   CompactPaneLength="45.5" DisplayMode="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToDisplayMode},Mode=OneWay}" 
+                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" PaneClosed="SplitView_PaneClosed" PaneClosing="SplitView_PaneClosing"
+                   OpenPaneLength="{x:Bind OpenedPaneLength,Mode=OneWay}" PanePlacement="{x:Bind HamburgerType, Converter={StaticResource HamburgerTypeToPanePlace},Mode=OneWay}">
+            <SplitView.Pane>
+                <ContentControl Content="{x:Bind PaneContent,Mode=OneWay}" HorizontalContentAlignment="Stretch" Background="Transparent"
+                                VerticalContentAlignment="Stretch" />
+            </SplitView.Pane>
+            <SplitView.Content>
+                    <ContentControl Content="{x:Bind Content,Mode=OneWay}"  Background="Transparent" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                </SplitView.Content>
+        </SplitView>
+            <Grid x:Name="SwipeHiddenGrid" Width="15" VerticalAlignment="Stretch" Visibility="{x:Bind IsSwipeOpenEnabled,Converter={StaticResource BoolToVisibilityConverter},Mode=OneWay}"
+                  ManipulationCompleted="SplitViewOpener_ManipulationCompleted" ManipulationMode="TranslateX" Background="Transparent"
+                  HorizontalAlignment="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHorizontalAlighment},Mode=OneWay}" >
+        </Grid>
+
+    </Grid>
+    </Grid>
+</UserControl>
