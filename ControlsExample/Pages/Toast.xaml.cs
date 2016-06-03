@@ -29,7 +29,19 @@ namespace ControlsExample.Pages
 
         private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            await Popup.ShowPopupMessageAsync("Toast Example!", (int)ShowSlider.Value, (int)AnimSlider.Value);
+            if(ShowSlider.Value == 0)
+            {
+                await Popup.ShowPopupMessageAsync("Toast Example, tap on me to hide!", (int)ShowSlider.Value, (int)AnimSlider.Value);
+            }
+            else
+            {
+                await Popup.ShowPopupMessageAsync("Toast Example!", (int)ShowSlider.Value, (int)AnimSlider.Value);
+            }
+        }
+
+        private async void Popup_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await Popup.HidePopupMessageAsync((int)AnimSlider.Value);
         }
     }
 }

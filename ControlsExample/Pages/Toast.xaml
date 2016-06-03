@@ -28,7 +28,7 @@
                 
             </Button>
         </StackPanel>
-        <dc:DewToastPopup VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="50" Background="WhiteSmoke" 
+        <dc:DewToastPopup Tapped="Popup_Tapped" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="50" Background="WhiteSmoke" 
                           MessageForeground="Black" MessageFontSize="16" x:Name="Popup" />
     </Grid>
 </Page>
