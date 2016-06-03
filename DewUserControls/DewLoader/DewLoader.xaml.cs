@@ -155,7 +155,7 @@ namespace DewUserControls
         /// Show a popup with fadein animation
         /// </summary>
         /// <param name="animationDuration">the translate time</param>
-        public async void ShowPopupLoader(int animationDuration = 500)
+        public async Task ShowPopupLoaderAync(int animationDuration = 500)
         {
             if (!this.IsVisible)
             {
@@ -169,7 +169,7 @@ namespace DewUserControls
         /// </summary>
         /// <param name="message">The message</param>
         /// <param name="animationDuration">the translate time</param>
-        public async Task ShowPopupLoader(string message, int animationDuration = 500)
+        public async Task ShowPopupLoaderAsync(string message, int animationDuration = 500)
         {
             if (!this.IsVisible)
             {
@@ -184,7 +184,7 @@ namespace DewUserControls
         /// Hide popup message with fadeout animation
         /// <param name="animationDuration">the translate time</param>
         /// </summary>
-        public async Task HidePopupLoader(int animationDuration = 500)
+        public async Task HidePopupLoaderAsync(int animationDuration = 500)
         {
             await this.AnimateDoublePropertyAsync("Opacity", 1, 0, animationDuration);
             this.IsVisible = false;
