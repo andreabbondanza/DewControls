@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using ControlsExample.Pages;
 using ControlsExample.VM;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -30,9 +31,34 @@ namespace ControlsExample
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            ListView l = sender as ListView;
+            if(l.SelectedIndex != -1)
+            {
+                switch (l.SelectedIndex)
+                {
+                    case 0:
+                        {
+                            TheFrame.Navigate(typeof(Hamburger));
+                            break;
+                        }
+                    case 1:
+                        {
+                            TheFrame.Navigate(typeof(Toast));
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Menu.SelectedIndex = 0;
         }
     }
 }

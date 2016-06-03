@@ -6,25 +6,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:dc="using:DewUserControls"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/black-floral-texture-pattern-design-wallpaper-background.jpg"/>
+    </Page.Background>
 
-    <dc:DewHamburgerMenu>
+    <dc:DewHamburgerMenu HamburgerBackground="Transparent" HamburgerBackgroundPressed="Transparent" HamburgerForeground="WhiteSmoke"
+                         HamburgerType="LeftSideCompact" PaneBackground="#90000000" BarBackgroundColor="Black"
+                         ContentBackground="Transparent"
+                         >
+        <dc:DewHamburgerMenu.BarContent>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock FontSize="18" Foreground="WhiteSmoke" Text="Controls Examples!"/>
+                <FontIcon Margin="20,0" Glyph="&#xE170;" Foreground="White" FontSize="18"/>
+            </StackPanel>
+        </dc:DewHamburgerMenu.BarContent>
         <dc:DewHamburgerMenu.PaneContent>
-            <ListView ItemsSource="{x:Bind ViewModel.MenuItems, Mode=OneWay}">
-                <DataTemplate x:DataType="local:MainMenuItem">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="45"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <FontIcon Glyph="{x:Bind Glyph, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="WhiteSmoke" />
-                        <TextBlock Grid.Column="1" Text="{x:Bind Text,Mode=OneWay}" Foreground="WhiteSmoke"/>
-                    </Grid>
-                </DataTemplate>
+            <ListView ItemsSource="{x:Bind ViewModel.MenuItems, Mode=OneWay}" x:Name="Menu" SelectionChanged="ListView_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:MainMenuItem">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <FontIcon Glyph="{x:Bind Glyph, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="WhiteSmoke" />
+                            <TextBlock Grid.Column="1" Text="{x:Bind Text,Mode=OneWay}" Foreground="WhiteSmoke"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </dc:DewHamburgerMenu.PaneContent>
         <Grid>
-            
+            <Frame x:Name="TheFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         </Grid>
     </dc:DewHamburgerMenu>
 </Page>

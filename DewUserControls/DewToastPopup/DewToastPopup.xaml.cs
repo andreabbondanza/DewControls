@@ -135,14 +135,15 @@ namespace DewUserControls
         /// <param name="message">The message</param>
         /// <param name="time">If set, the popup will be closed after a time delay</param>
         /// <param name="animationDuration">the translate time</param>
-        public async Task ShowPopupMessageAsync(string message, int time = 0, int animationDuration = 500)
+        public async Task ShowPopupMessageAsync(string message = null, int time = 0, int animationDuration = 500)
         {
             if (PopupCount < 254)
                 PopupCount++;
             var popupCount = PopupCount;
             this.Opacity = 0;
             this.IsVisible = true;
-            this.Message = message;
+            if(message != null)
+                this.Message = message;
             await this.AnimateDoublePropertyAsync("Opacity", 0, 1, animationDuration);
             if (time > 0)
             {

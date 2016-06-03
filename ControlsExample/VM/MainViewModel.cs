@@ -20,6 +20,10 @@ namespace ControlsExample.VM
         public MainViewModel()
         {
             MenuItems.Add(new MainMenuItem("Hamburger", "\uE700"));
+            MenuItems.Add(new MainMenuItem("Toast Popup", "\uE15F"));
+            MenuItems.Add(new MainMenuItem("Toast Loader", "\uE117"));
+            MenuItems.Add(new MainMenuItem("Dialog", "\uE12A"));
+            
         }
 
     }
