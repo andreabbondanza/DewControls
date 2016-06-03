@@ -50,6 +50,11 @@ namespace ControlsExample
                             TheFrame.Navigate(typeof(Toast));
                             break;
                         }
+                    case 2:
+                        {
+                            TheFrame.Navigate(typeof(Loader));
+                            break;
+                        }
                     default:
                         break;
                 }

@@ -155,7 +155,7 @@ namespace DewUserControls
         /// Show a popup with fadein animation
         /// </summary>
         /// <param name="animationDuration">the translate time</param>
-        public async Task ShowPopupLoaderAync(int animationDuration = 500)
+        public async Task ShowPopupLoaderAsync(int animationDuration = 500)
         {
             if (!this.IsVisible)
             {
