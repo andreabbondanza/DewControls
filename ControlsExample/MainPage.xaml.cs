@@ -55,6 +55,11 @@ namespace ControlsExample
                             TheFrame.Navigate(typeof(Loader));
                             break;
                         }
+                    case 3:
+                        {
+                            TheFrame.Navigate(typeof(DialogPage));
+                            break;
+                        }
                     default:
                         break;
                 }

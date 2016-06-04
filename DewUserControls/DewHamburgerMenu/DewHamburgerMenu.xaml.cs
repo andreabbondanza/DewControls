@@ -225,7 +225,7 @@ namespace DewUserControls
             DependencyProperty.Register("ContentBackground", typeof(Brush), typeof(DewHamburgerMenu), new PropertyMetadata(new SolidColorBrush(Colors.WhiteSmoke)));
 
         /// <summary>
-        /// Get\set the Opened panel lenght
+        /// Get\set the Opened panel length
         /// </summary>
         public double OpenedPaneLength
         {

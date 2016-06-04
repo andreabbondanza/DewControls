@@ -36,6 +36,18 @@ namespace DewUserControls
 
         #region topbar
 
+        public string DialogTitle
+        {
+            get { return (string)GetValue(DialogTitleProperty); }
+            set { SetValue(DialogTitleProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DialogTitle.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DialogTitleProperty =
+            DependencyProperty.Register("DialogTitle", typeof(string), typeof(DewDialog), new PropertyMetadata(string.Empty));
+
+
+
         /// <summary>
         /// Close button X Foreground
         /// </summary>
@@ -48,7 +60,7 @@ namespace DewUserControls
         /// Using a DependencyProperty as the backing store for CloseGlyphForeground.  This enables animation, styling, binding, etc...
         /// </summary>        
         public static readonly DependencyProperty CloseGlyphForegroundProperty =
-            DependencyProperty.Register("CloseGlyphForeground", typeof(SolidColorBrush), typeof(SolidColorBrush), new PropertyMetadata(new SolidColorBrush(Colors.Black)));
+            DependencyProperty.Register("CloseGlyphForeground", typeof(SolidColorBrush), typeof(DewDialog), new PropertyMetadata(new SolidColorBrush(Colors.Black)));
 
         /// <summary>
         /// Top bar Background
@@ -85,21 +97,6 @@ namespace DewUserControls
 
 
         /// <summary>
-        /// Content scrollviewer style
-        /// </summary>
-        public Style ContentScrollViewerStyle
-        {
-            get { return (Style)GetValue(ContentScrollViewerStyleProperty); }
-            set { SetValue(ContentScrollViewerStyleProperty, value); }
-        }
-
-        /// <summary>
-        /// Using a DependencyProperty as the backing store for ContentScrollViewerStyle.  This enables animation, styling, binding, etc...
-        /// </summary>
-        public static readonly DependencyProperty ContentScrollViewerStyleProperty =
-            DependencyProperty.Register("ContentScrollViewerStyle", typeof(Style), typeof(DewDialog), new PropertyMetadata(null));
-
-        /// <summary>
         /// Content Background
         /// </summary>
         public Brush ContentBackground
@@ -114,7 +111,20 @@ namespace DewUserControls
         public static readonly DependencyProperty ContentBackgroundProperty =
             DependencyProperty.Register("ContentBackground", typeof(Brush), typeof(DewDialog), new PropertyMetadata(new SolidColorBrush(Colors.WhiteSmoke)));
 
+        /// <summary>
+        /// The main content
+        /// </summary>
+        public new UIElement Content
+        {
+            get { return (UIElement)GetValue(ContentProperty); }
+            set { SetValue(ContentProperty, value); }
+        }
 
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for MessageFontFamily.  This enables animation, styling, binding, etc...
+        /// </summary>
+        public new static readonly DependencyProperty ContentProperty =
+            DependencyProperty.Register("ContentProperty", typeof(UIElement), typeof(DewHamburgerMenu), new PropertyMetadata(null));
         #endregion
 
         #region button area
@@ -319,7 +329,7 @@ namespace DewUserControls
             Storyboard s = g.Resources["CloseButtonStoryboard"] as Storyboard;
             s.Begin();
             CloseButtonTapped?.Invoke(sender, e);
-            await HidePopupLoaderAsync(300);
+            await HideDialogAsync(300);
         }
 
         /// <summary>
@@ -339,7 +349,7 @@ namespace DewUserControls
         /// Hide dialog with fadeout animation
         /// <param name="animationDuration">the translate time</param>
         /// </summary>
-        public async Task HidePopupLoaderAsync(int animationDuration = 500)
+        public async Task HideDialogAsync(int animationDuration = 500)
         {
             await this.AnimateDoublePropertyAsync("Opacity", 1, 0, animationDuration);
             IsVisible = false;

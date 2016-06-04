@@ -54,7 +54,7 @@
         <Storyboard x:Key="ToVertical">
             <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="Rotation"/>
             <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="SecondLineTransform" Storyboard.TargetProperty="Rotation"/>
-            <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="Rotation"/>            
+            <DoubleAnimation Duration="0:0:0.2" From="0" To="360" Storyboard.TargetName="ThirdLineTransform" Storyboard.TargetProperty="Rotation"/>
         </Storyboard>
         <Storyboard x:Key="ToHamburgerFromVertical">
             <DoubleAnimation Duration="0:0:0.2" From="360" To="0" Storyboard.TargetName="FirstLineTransform" Storyboard.TargetProperty="Rotation"/>
@@ -105,19 +105,19 @@
                    CompactPaneLength="45.5" DisplayMode="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToDisplayMode},Mode=OneWay}" 
                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" PaneClosed="SplitView_PaneClosed" PaneClosing="SplitView_PaneClosing"
                    OpenPaneLength="{x:Bind OpenedPaneLength,Mode=OneWay}" PanePlacement="{x:Bind HamburgerType, Converter={StaticResource HamburgerTypeToPanePlace},Mode=OneWay}">
-            <SplitView.Pane>
-                <ContentControl Content="{x:Bind PaneContent,Mode=OneWay}" HorizontalContentAlignment="Stretch" Background="Transparent"
+                <SplitView.Pane>
+                    <ContentControl Content="{x:Bind PaneContent,Mode=OneWay}" HorizontalContentAlignment="Stretch" Background="Transparent"
                                 VerticalContentAlignment="Stretch" />
-            </SplitView.Pane>
-            <SplitView.Content>
+                </SplitView.Pane>
+                <SplitView.Content>
                     <ContentControl Content="{x:Bind Content,Mode=OneWay}"  Background="Transparent" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
                 </SplitView.Content>
-        </SplitView>
+            </SplitView>
             <Grid x:Name="SwipeHiddenGrid" Width="15" VerticalAlignment="Stretch" Visibility="{x:Bind IsSwipeOpenEnabled,Converter={StaticResource BoolToVisibilityConverter},Mode=OneWay}"
                   ManipulationCompleted="SplitViewOpener_ManipulationCompleted" ManipulationMode="TranslateX" Background="Transparent"
                   HorizontalAlignment="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHorizontalAlighment},Mode=OneWay}" >
-        </Grid>
+            </Grid>
 
-    </Grid>
+        </Grid>
     </Grid>
 </UserControl>

@@ -27,7 +27,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Text" Foreground="{x:Bind TopBarForeground,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"></TextBlock>
+            <TextBlock Text="{x:Bind DialogTitle,Mode=OneWay}" Foreground="{x:Bind TopBarForeground,Mode=OneWay}" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
             <Grid Width="30" Height="30" HorizontalAlignment="Right" Tapped="Close_Tapped" Background="Transparent"
                   x:Name="CloseButton">
                 <Grid.Resources>
@@ -42,9 +43,9 @@
                 <FontIcon Glyph="&#xE106;" Foreground="{x:Bind CloseGlyphForeground,Mode=OneWay}"></FontIcon>
             </Grid>
         </Grid>
-        <ScrollViewer Grid.Row="1" Style="{x:Bind ContentScrollViewerStyle,Mode=OneWay}">
-            <ContentControl Content="{x:Bind Content,Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
-        </ScrollViewer>
+        <Grid Grid.Row="1">
+            <ContentControl Content="{x:Bind Content, Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+        </Grid>
         <Grid Grid.Row="2" 
               Visibility="{x:Bind IsButtonAreaVisible,Converter={StaticResource BoolToVisibilityConverter},Mode=OneWay}" Background="{x:Bind ButtonAreaBackground,Mode=OneWay}">
             <Grid.ColumnDefinitions>
