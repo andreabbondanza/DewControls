@@ -30,6 +30,11 @@ namespace DewUserControls
         /// Close button tapped event (append to close event)
         /// </summary>
         public event TappedEventHandler CloseButtonTapped = null;
+        public delegate void OpenEventHandler(object content);
+        /// <summary>
+        /// Event in opening
+        /// </summary>
+        public event OpenEventHandler DialogOpening = null;
         #endregion
         #region propdp
 
@@ -307,7 +312,10 @@ namespace DewUserControls
         /// <param name="e"></param>
         private void LeftButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            Button b = sender as Button;
+            b.IsEnabled = false;
             LeftButtonTapped?.Invoke(this, e);
+            b.IsEnabled = true;
         }
         /// <summary>
         /// Right button tapped method
@@ -316,7 +324,10 @@ namespace DewUserControls
         /// <param name="e"></param>
         private void RightButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            Button b = sender as Button;
+            b.IsEnabled = false;
             RightButtonTapped?.Invoke(this, e);
+            b.IsEnabled = true;
         }
         /// <summary>
         /// Close button tapped method
@@ -340,6 +351,7 @@ namespace DewUserControls
         {
             if (!IsVisible)
             {
+                this.DialogOpening?.Invoke(this.Content);
                 this.Opacity = 0;
                 IsVisible = true;
                 await this.AnimateDoublePropertyAsync("Opacity", 0, 1, animationDuration);
