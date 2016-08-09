@@ -22,10 +22,9 @@ Before the appstudio release, I wrote a library for animations, etc. After AppSt
 Now the library contains helpers and other stuff like converters.
 
 ##Hamburger
-
-###Properties
 The Hamburger is __highly customizable__. You can check the customizable properties here.
 
+###Properties
 - HamburgerType:__enum__  
 values:  LeftSide, LeftSideCompact, LeftSideCompactInLine, LeftSideInLine, RightSide, RightSideCompact, RightSideCompactInLine, RightSideInLine 
 - HamburgerButtonAnimation:__enum__  
@@ -80,7 +79,7 @@ There aren't public methods
 ##Toast popup
 The toast popup is really cute and you can use it to give a feedback to the user about an operation, or obviously, whatever you want.
 
-##Properties
+###Properties
 - MessageFontFamily:__FontFamily__ - The font family for text in the toast  
 - MessageFontSize:__double__ - The font size in the toast
 - CornerRadius:__CornerRadius__ - The toast corners
@@ -113,7 +112,7 @@ await Popup.ShowPopupMessageAsync("example", 2000);
 ##Loader toast
 This is a simple toast that contains a text and a loader ring. It's a simple way to show a loader with a message.
 
-#Properties
+###Properties
 - RingPosition:__enum__  
 values:Top, Bottom  
 - MessageFontFamily:__FontFamily__ - The font family for text in the toast  
@@ -147,7 +146,7 @@ await Loader.ShowPopupLoaderAsync("example", 2000);
 
 ##Dialog Window
 Here we have a simple dialog control. You can customize it however you want.
-The buttons must be defined in the buttons style properties
+The buttons must be defined in the buttons style properties.
 
 ###Properties
 - DewDialogType:__enum__  
