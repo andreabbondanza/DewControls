@@ -24,5 +24,10 @@
             /// </summary>
             Nothing
         }
+        /// <summary>
+        /// Opening popup event's delegate
+        /// </summary>
+        /// <param name="content"></param>
+        public delegate void OpenEventHandler(object content);
     }
 }

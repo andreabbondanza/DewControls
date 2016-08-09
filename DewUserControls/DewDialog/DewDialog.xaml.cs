@@ -30,7 +30,6 @@ namespace DewUserControls
         /// Close button tapped event (append to close event)
         /// </summary>
         public event TappedEventHandler CloseButtonTapped = null;
-        public delegate void OpenEventHandler(object content);
         /// <summary>
         /// Event in opening
         /// </summary>
@@ -40,14 +39,18 @@ namespace DewUserControls
 
 
         #region topbar
-
+        /// <summary>
+        /// Dialog title
+        /// </summary>
         public string DialogTitle
         {
             get { return (string)GetValue(DialogTitleProperty); }
             set { SetValue(DialogTitleProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for DialogTitle.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for DialogTitle.  This enables animation, styling, binding, etc...
+        /// </summary>        
         public static readonly DependencyProperty DialogTitleProperty =
             DependencyProperty.Register("DialogTitle", typeof(string), typeof(DewDialog), new PropertyMetadata(string.Empty));
 
@@ -314,7 +317,7 @@ namespace DewUserControls
         {
             Button b = sender as Button;
             b.IsEnabled = false;
-            LeftButtonTapped?.Invoke(this, e);
+            LeftButtonTapped?.Invoke(this.Content, e);
             b.IsEnabled = true;
         }
         /// <summary>
@@ -326,7 +329,7 @@ namespace DewUserControls
         {
             Button b = sender as Button;
             b.IsEnabled = false;
-            RightButtonTapped?.Invoke(this, e);
+            RightButtonTapped?.Invoke(this.Content, e);
             b.IsEnabled = true;
         }
         /// <summary>
@@ -339,7 +342,7 @@ namespace DewUserControls
             Grid g = sender as Grid;
             Storyboard s = g.Resources["CloseButtonStoryboard"] as Storyboard;
             s.Begin();
-            CloseButtonTapped?.Invoke(sender, e);
+            CloseButtonTapped?.Invoke(this.Content, e);
             await HideDialogAsync(300);
         }
 

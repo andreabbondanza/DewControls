@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DewCommonControlsLibrary")]
 [assembly: AssemblyDescription("A set of common libraries")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Andrea Vincenzo Abbondanza")]
 [assembly: AssemblyProduct("DewCommonControlsLibrary")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
