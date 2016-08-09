@@ -215,7 +215,7 @@ await Loader.ShowDialogAsync(500);
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160809_0004.png" width="200"/>
 
 
-###Other sources
+##Other sources
 
-##Nuget
+###Nuget
 You can find controls on [nuget](https://www.nuget.org/packages/DewUserControls/)
