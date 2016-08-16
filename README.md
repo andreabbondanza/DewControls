@@ -216,5 +216,8 @@ await Loader.ShowDialogAsync(500);
 
 ##Other sources
 
+###See in action
+You can see some of those controls in the [Photove App](https://www.microsoft.com/en-gb/store/p/photove/9nblggh4tl9n)
+
 ###Nuget
 You can find controls on [nuget](https://www.nuget.org/packages/DewUserControls/)
