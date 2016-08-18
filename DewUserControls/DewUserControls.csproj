@@ -130,7 +130,7 @@
     <Compile Include="DewFloatButton\DewFloatButton.xaml.cs">
       <DependentUpon>DewFloatButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DewFloatButton\FloatButtonPresentation.cs" />
+    <Compile Include="DewFloatButton\DewFloatButtonPresentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DewUserControls.rd.xml" />
   </ItemGroup>

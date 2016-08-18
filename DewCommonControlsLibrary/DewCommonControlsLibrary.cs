@@ -68,23 +68,32 @@ namespace DewCommonControlsLibrary
         public class DebugConverter : IValueConverter
         {
             /// <summary>
-            /// Convert from source to UI
+            /// Convert from source to UI, show the value in output console
             /// </summary>
             /// <param name="value"></param>
             /// <param name="targetType"></param>
             /// <param name="parameter"></param>
             /// <param name="language"></param>
             /// <returns></returns>
-            public object Convert(object value, Type targetType, object parameter, string language) => value;
+            public object Convert(object value, Type targetType, object parameter, string language)
+            {
+                System.Diagnostics.Debug.WriteLine("DEBUG :" + value);
+                return value;
+            }
+
             /// <summary>
-            /// Convert from UI to source
+            /// Convert from UI to source, show the value in output console
             /// </summary>
             /// <param name="value"></param>
             /// <param name="targetType"></param>
             /// <param name="parameter"></param>
             /// <param name="language"></param>
             /// <returns></returns>
-            public object ConvertBack(object value, Type targetType, object parameter, string language) => value;
+            public object ConvertBack(object value, Type targetType, object parameter, string language)
+            {
+                System.Diagnostics.Debug.WriteLine("DEBUG :"+value);
+                return value;
+            }
         }
         /// <summary>
         /// Convert a color to nullable color
