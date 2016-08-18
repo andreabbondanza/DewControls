@@ -33,42 +33,49 @@ namespace DewUserControls
         public new event TappedEventHandler Tapped = null;
 
 
-
+        /// <summary>
+        /// The float button content
+        /// </summary>
         public object FloatButtonContent
         {
             get { return (object)GetValue(FloatButtonContentProperty); }
             set { SetValue(FloatButtonContentProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for FloatButtonContent.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for FloatButtonContent.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty FloatButtonContentProperty =
             DependencyProperty.Register("FloatButtonContent", typeof(object), typeof(DewFloatButton), new PropertyMetadata(null));
 
-
+        /// <summary>
+        /// The float button background
+        /// </summary>
         public Brush FloatButtonBackground
         {
             get { return (Brush)GetValue(FloatButtonBackgroundProperty); }
             set { SetValue(FloatButtonBackgroundProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for FloatButtonBackground.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for FloatButtonBackground.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty FloatButtonBackgroundProperty =
             DependencyProperty.Register("FloatButtonBackground", typeof(Brush), typeof(DewFloatButton), new PropertyMetadata(new SolidColorBrush(Colors.Blue)));
 
 
-
+        /// <summary>
+        /// The flyout max height
+        /// </summary>
         public double FlyoutMaxHeight
         {
             get { return (double)GetValue(FlyoutMaxHeightProperty); }
             set { SetValue(FlyoutMaxHeightProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for FlyoutMaxHeight.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for FlyoutMaxHeight.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty FlyoutMaxHeightProperty =
             DependencyProperty.Register("FlyoutMaxHeight", typeof(double), typeof(DewFloatButton), new PropertyMetadata(400.0));
-
-
-
+        
         /// <summary>
         /// Item text font size
         /// </summary>
@@ -77,69 +84,82 @@ namespace DewUserControls
             get { return (double)GetValue(ItemTextFontSizeProperty); }
             set { SetValue(ItemTextFontSizeProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for ItemTextFontSize.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ItemTextFontSize.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ItemTextFontSizeProperty =
             DependencyProperty.Register("ItemTextFontSize", typeof(double), typeof(DewFloatButton), new PropertyMetadata(16.0));
 
 
-
+        /// <summary>
+        /// The item text font family
+        /// </summary>
         public FontFamily ItemTextFontFamily
         {
             get { return (FontFamily)GetValue(ItemTextFontFamilyProperty); }
             set { SetValue(ItemTextFontFamilyProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for ItemTextFontFamily.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ItemTextFontFamily.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ItemTextFontFamilyProperty =
             DependencyProperty.Register("ItemTextFontFamily", typeof(FontFamily), typeof(DewFloatButton), new PropertyMetadata(new FontFamily("Segoe UI")));
 
 
-
+        /// <summary>
+        /// Item text foreground
+        /// </summary>        
         public Brush ItemTextForeground
         {
             get { return (Brush)GetValue(ItemTextForegroundProperty); }
             set { SetValue(ItemTextForegroundProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for ItemTextForeground.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ItemTextForeground.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ItemTextForegroundProperty =
             DependencyProperty.Register("ItemTextForeground", typeof(Brush), typeof(DewFloatButton), new PropertyMetadata(new SolidColorBrush(Colors.Black)));
 
-
-
+        /// <summary>
+        /// Item text background (default transparent)
+        /// </summary>
         public Brush ItemTextBackground
         {
             get { return (Brush)GetValue(ItemTextBackgroundProperty); }
             set { SetValue(ItemTextBackgroundProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for ItemTextBackground.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ItemTextBackground.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ItemTextBackgroundProperty =
             DependencyProperty.Register("ItemTextBackground", typeof(Brush), typeof(DewFloatButton), new PropertyMetadata(new SolidColorBrush(Colors.Transparent)));
 
-
-
-
+        /// <summary>
+        /// The item text alignment
+        /// </summary>
         public HorizontalAlignment ItemTextHorizontalAlignment
         {
             get { return (HorizontalAlignment)GetValue(ItemTextHorizontalAlignmentProperty); }
             set { SetValue(ItemTextHorizontalAlignmentProperty, value); }
         }
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ItemTextHorizontalAlignment.  This enables animation, styling, binding, etc...
+        /// </summary>
 
-        // Using a DependencyProperty as the backing store for ItemTextHorizontalAlignment.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ItemTextHorizontalAlignmentProperty =
             DependencyProperty.Register("ItemTextHorizontalAlignment", typeof(HorizontalAlignment), typeof(DewFloatButton), new PropertyMetadata(HorizontalAlignment.Right));
 
-
-
+        /// <summary>
+        /// The item background
+        /// </summary>
         public Brush ItemBackground
         {
             get { return (Brush)GetValue(ItemBackgroundProperty); }
             set { SetValue(ItemBackgroundProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for ItemBackground.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ItemBackground.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ItemBackgroundProperty =
             DependencyProperty.Register("ItemBackground", typeof(Brush), typeof(DewFloatButton), new PropertyMetadata(new SolidColorBrush(Colors.Transparent)));
 
@@ -234,7 +254,9 @@ namespace DewUserControls
 
         #endregion
         private bool isAnimationActive = false;
-
+        /// <summary>
+        /// Animation active propery
+        /// </summary>
         public bool IsAnimationActive
         {
             get { return isAnimationActive; }
@@ -251,11 +273,20 @@ namespace DewUserControls
             this.FlyoutStyle = this.Resources["DefaultFlyoutStyle"] as Style;
         }
 
+        /// <summary>
+        /// When button tapped
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Float_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Tapped?.Invoke(sender, e);
         }
-
+        /// <summary>
+        /// Flyout opened
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void FloatList_Opened(object sender, object e)
         {
             var b = FloatButton;
@@ -265,7 +296,11 @@ namespace DewUserControls
                                 centerX: ((float)(b.ActualWidth / 2)),
                                 centerY: ((float)(b.ActualHeight / 2))).StartAsync();
         }
-
+        /// <summary>
+        /// Flyout closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void FloatList_Closed(object sender, object e)
         {
             var b = FloatButton;
@@ -275,7 +310,11 @@ namespace DewUserControls
                             centerX: ((float)(b.ActualWidth / 2)),
                             centerY: ((float)(b.ActualHeight / 2))).StartAsync();
         }
-
+        /// <summary>
+        /// Something has been selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FloatListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListView l = sender as ListView;

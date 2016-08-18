@@ -30,7 +30,9 @@ namespace DewUserControls.DewFloatButtonPresentation
             /// Event occurs when this item is selected
             /// </summary>
             public event FloatButtonSelectedHandler OnSelected = null;
-
+            /// <summary>
+            /// Invoke the selected events
+            /// </summary>
             public void Selected()
             {
                 this.OnSelected?.Invoke();
