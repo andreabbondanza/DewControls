@@ -6,8 +6,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
-using AppStudio.Uwp;
 using System.Threading.Tasks;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace DewUserControls
@@ -357,7 +357,7 @@ namespace DewUserControls
                 this.DialogOpening?.Invoke(this.Content);
                 this.Opacity = 0;
                 IsVisible = true;
-                await this.AnimateDoublePropertyAsync("Opacity", 0, 1, animationDuration);
+                await this.Fade(1, animationDuration, 0).StartAsync();
             }
         }
         /// <summary>
@@ -366,7 +366,8 @@ namespace DewUserControls
         /// </summary>
         public async Task HideDialogAsync(int animationDuration = 500)
         {
-            await this.AnimateDoublePropertyAsync("Opacity", 1, 0, animationDuration);
+            await this.Fade(0, animationDuration, 0).StartAsync();
+            
             IsVisible = false;
         }
     }

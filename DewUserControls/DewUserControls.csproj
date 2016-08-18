@@ -127,6 +127,10 @@
       <DependentUpon>DewToastPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="DewToastPopup\DewToastPopupPresentation.cs" />
+    <Compile Include="DewFloatButton\DewFloatButton.xaml.cs">
+      <DependentUpon>DewFloatButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DewFloatButton\FloatButtonPresentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DewUserControls.rd.xml" />
   </ItemGroup>
@@ -145,6 +149,10 @@
     <Page Include="DewToastPopup\DewToastPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DewFloatButton\DewFloatButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

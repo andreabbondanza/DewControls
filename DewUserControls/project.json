@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "WindowsAppStudio.Uwp": "1.5.1"
+    "Microsoft.Toolkit.Uwp.UI.Animations": "1.0.0"
   },
   "frameworks": {
     "uap10.0": {}
