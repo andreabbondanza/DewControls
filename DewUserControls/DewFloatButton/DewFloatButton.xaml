@@ -9,7 +9,7 @@
     x:Name="FloatButton">
     <UserControl.Resources>
         <dc:DebugConverter x:Key="dbconv"></dc:DebugConverter>
-
+        <dc:NullToVisibilityConverter x:Key="NullToVis"/>
         <Style x:Key="DefaultFloatStyle" TargetType="Button">
             <Setter Property="Width" Value="60"/>
             <Setter Property="Height" Value="60"/>
@@ -25,7 +25,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="RootGrid" Background="{TemplateBinding Background}" CornerRadius="50" BorderBrush="Transparent" BorderThickness="0">
+                        <Border x:Name="RootGrid" Background="{TemplateBinding Background}" CornerRadius="50" BorderBrush="Transparent" BorderThickness="0">                        
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
@@ -35,9 +35,6 @@
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
-                                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>-->
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
@@ -49,9 +46,6 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>-->
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
@@ -66,15 +60,12 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>-->
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
+                        </Border>                            
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -93,13 +84,14 @@
         <Button.Flyout>
             <Flyout x:Name="FloatList" FlyoutPresenterStyle="{x:Bind FlyoutStyle, Mode=OneWay}"
                     Opened="FloatList_Opened" Closed="FloatList_Closed">
-<!-- set datacontext in TAG (UC) -->
+                <Grid>
+                <!-- set datacontext in TAG (UC) -->
                 <ListView ItemsSource="{x:Bind FlyoutItemsSource,Mode=OneWay}" 
                           Width="{x:Bind FlyoutWidth, Mode=OneWay}" 
                           x:Name="FloatListView"
                           MaxHeight="{x:Bind FlyoutMaxHeight,Mode=OneWay}"
                           
-                          Tag="{Binding  Converter={StaticResource dbconv}}"
+                          Tag="{Binding }"
                           SelectionChanged="FloatListView_SelectionChanged">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -123,7 +115,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="pr:DewFloatButtonItem">
                             <Grid Height="{Binding ElementName=FloatListView, Path=Tag.ItemHeight,Mode=OneWay}"
-                                  Background="{Binding ElementName=FloatListView, Path=Tag.ItemBackground,Mode=OneWay,Converter={StaticResource dbconv}}" 
+                                  Background="{Binding ElementName=FloatListView, Path=Tag.ItemBackground,Mode=OneWay}" 
                                   HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -131,7 +123,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid Background="{Binding ElementName=FloatListView, Path=Tag.ItemTextBackground, Mode=OneWay}">
                                     <TextBlock VerticalAlignment="Center"
-                                           HorizontalAlignment="{Binding ElementName=FloatListView, Path=Tag.ItemTextHorizontalAlignment, Mode=OneWay,Converter={StaticResource dbconv}}" 
+                                           HorizontalAlignment="{Binding ElementName=FloatListView, Path=Tag.ItemTextHorizontalAlignment, Mode=OneWay}" 
                                            Margin="10"
                                            Text="{x:Bind Text,Mode=OneWay}"
                                            FontFamily="{Binding ElementName=FloatListView, Path=Tag.ItemTextFontFamily, Mode=OneWay}"
@@ -144,6 +136,9 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                    <ContentControl Content="{x:Bind FloatButtonListView,Mode=OneWay}" 
+                                    Visibility="{x:Bind FlyoutItemsSource, Converter={StaticResource NullToVis}, ConverterParameter=inv }"></ContentControl>
+                </Grid>
             </Flyout>
         </Button.Flyout>
     </Button>

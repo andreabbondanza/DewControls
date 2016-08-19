@@ -33,6 +33,20 @@ namespace DewUserControls
         public new event TappedEventHandler Tapped = null;
 
 
+
+
+        public ListView FloatButtonListView
+        {
+            get { return (ListView)GetValue(FloatButtonListViewProperty); }
+            set { SetValue(FloatButtonListViewProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for FloatButtonListView.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty FloatButtonListViewProperty =
+            DependencyProperty.Register("FloatButtonListView", typeof(ListView), typeof(DewFloatButton), new PropertyMetadata(null));
+
+
+
         /// <summary>
         /// The float button content
         /// </summary>
@@ -236,21 +250,7 @@ namespace DewUserControls
         public static readonly DependencyProperty FlyoutStyleProperty =
             DependencyProperty.Register("FlyoutStyle", typeof(Style), typeof(DewFloatButton), new PropertyMetadata(null));
 
-        /// <summary>
-        /// Button content glyph
-        /// </summary>
-        public string Glyph
-        {
-            get { return (string)GetValue(GlyphProperty); }
-            set { SetValue(GlyphProperty, value); }
-        }
-
-        /// <summary>
-        /// Using a DependencyProperty as the backing store for Glyph.  This enables animation, styling, binding, etc...
-        /// </summary>
-        public static readonly DependencyProperty GlyphProperty =
-            DependencyProperty.Register("Glyph", typeof(string), typeof(DewFloatButton), new PropertyMetadata(string.Empty));
-
+        
 
         #endregion
         private bool isAnimationActive = false;
@@ -321,7 +321,7 @@ namespace DewUserControls
             if (l.SelectedItem != null)
             {
                 DewFloatButtonItem d = l.SelectedItem as DewFloatButtonItem;
-                d.Selected();
+                d.Selected(sender,e);
             }
             l.SelectedItem = null;
         }

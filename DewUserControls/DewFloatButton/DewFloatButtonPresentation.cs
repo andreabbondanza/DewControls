@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace DewUserControls.DewFloatButtonPresentation
 {
@@ -12,7 +13,7 @@ namespace DewUserControls.DewFloatButtonPresentation
         /// <summary>
         /// Float button selected handler
         /// </summary>
-        public delegate void FloatButtonSelectedHandler();
+        public delegate void FloatButtonSelectedHandler(object sender, SelectionChangedEventArgs e);
         /// <summary>
         /// Flyout default item
         /// </summary>
@@ -33,9 +34,9 @@ namespace DewUserControls.DewFloatButtonPresentation
             /// <summary>
             /// Invoke the selected events
             /// </summary>
-            public void Selected()
+            public void Selected(object sender, SelectionChangedEventArgs e)
             {
-                this.OnSelected?.Invoke();
+                this.OnSelected?.Invoke(sender, e);
             }
             /// <summary>
             /// Standard constructor
