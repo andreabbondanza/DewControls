@@ -367,7 +367,15 @@ namespace DewUserControls
                 DewFloatButtonItem d = l.SelectedItem as DewFloatButtonItem;
                 d.Selected(sender,e);
             }
+            this.CloseFlyout();
             l.SelectedItem = null;
+        }
+        /// <summary>
+        /// Force the flyout close
+        /// </summary>
+        public void CloseFlyout()
+        {
+            this.FloatContainer.Hide();
         }
     }
 }
