@@ -26,22 +26,32 @@ namespace DewUserControls
     /// </summary>
     public sealed partial class DewFloatButton : UserControl
     {
-        #region dependency
+        #region events
         /// <summary>
         /// Button tapped event
         /// </summary>
         public new event TappedEventHandler Tapped = null;
-
-
-
-
+        /// <summary>
+        /// List closed event
+        /// </summary>
+        public event Action FloatButtonClosed = null;
+        /// <summary>
+        /// List opened event
+        /// </summary>
+        public event Action FloatButtonOpened = null;
+        #endregion
+        #region dependency
+        /// <summary>
+        /// Static listview for xaml
+        /// </summary>
         public ListView FloatButtonListView
         {
             get { return (ListView)GetValue(FloatButtonListViewProperty); }
             set { SetValue(FloatButtonListViewProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for FloatButtonListView.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for FloatButtonListView.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty FloatButtonListViewProperty =
             DependencyProperty.Register("FloatButtonListView", typeof(ListView), typeof(DewFloatButton), new PropertyMetadata(null));
 
@@ -262,6 +272,34 @@ namespace DewUserControls
             get { return isAnimationActive; }
             set { isAnimationActive = value; }
         }
+        private bool isOpened = false;
+        /// <summary>
+        /// Return true if list is opened
+        /// </summary>
+        public bool IsOpened
+        {
+            get { return isOpened; }
+        }
+
+        private Style defaultFloatButtonStyle = null;
+        /// <summary>
+        /// Return the default button style for BasedOn to help in a new style definition
+        /// </summary>
+        public Style DefaultFloatButtonStyle
+        {
+            get { return defaultFloatButtonStyle; }
+        }
+
+
+        private Style defaultListStyle = null;
+        /// <summary>
+        /// Return the default button style for BasedOn to help in a new style definition
+        /// </summary>
+        public Style DefaultListStyle
+        {
+            get { return defaultListStyle; }
+        }
+
 
         /// <summary>
         /// Constructor
@@ -271,6 +309,8 @@ namespace DewUserControls
             this.InitializeComponent();
             this.ButtonStyle = this.Resources["DefaultFloatStyle"] as Style;
             this.FlyoutStyle = this.Resources["DefaultFlyoutStyle"] as Style;
+            this.defaultFloatButtonStyle = this.ButtonStyle;
+            this.defaultListStyle = this.FlyoutStyle;
         }
 
         /// <summary>
@@ -287,9 +327,11 @@ namespace DewUserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void FloatList_Opened(object sender, object e)
+        private async void FloatContainer_Opened(object sender, object e)
         {
             var b = FloatButton;
+            this.isOpened = true;
+            this.FloatButtonOpened?.Invoke();
             if (this.isAnimationActive)
                 await b.Rotate(duration: 500, delay: 0,
                                 value: 405.0f,
@@ -301,9 +343,11 @@ namespace DewUserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void FloatList_Closed(object sender, object e)
+        private async void FloatContainer_Closed(object sender, object e)
         {
             var b = FloatButton;
+            this.FloatButtonClosed?.Invoke();
+            this.isOpened = false;
             if (this.isAnimationActive)
                 await b.Rotate(duration: 500, delay: 0,
                             value: 0.0f,

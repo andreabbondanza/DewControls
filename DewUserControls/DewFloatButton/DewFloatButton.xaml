@@ -74,6 +74,8 @@
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderBrush" Value="Transparent"></Setter>
         </Style>
+        
+        
     </UserControl.Resources>
     <!-- workaround for flyout datacontext, bind the UC to button DC -->
     <Button x:Name="Float" VerticalAlignment="Center" HorizontalAlignment="Center" 
@@ -82,8 +84,8 @@
             DataContext="{Binding ElementName=FloatButton}"
             Tapped="Float_Tapped" Content="{x:Bind FloatButtonContent,Mode=OneWay}">        
         <Button.Flyout>
-            <Flyout x:Name="FloatList" FlyoutPresenterStyle="{x:Bind FlyoutStyle, Mode=OneWay}"
-                    Opened="FloatList_Opened" Closed="FloatList_Closed">
+            <Flyout x:Name="FloatContainer" FlyoutPresenterStyle="{x:Bind FlyoutStyle, Mode=OneWay}"
+                    Opened="FloatContainer_Opened" Closed="FloatContainer_Closed">
                 <Grid>
                 <!-- set datacontext in TAG (UC) -->
                 <ListView ItemsSource="{x:Bind FlyoutItemsSource,Mode=OneWay}" 
