@@ -41,6 +41,7 @@ namespace DewUserControls
         public event Action FloatButtonOpened = null;
         #endregion
         #region dependency
+
         /// <summary>
         /// Static listview for xaml
         /// </summary>
@@ -99,7 +100,7 @@ namespace DewUserControls
         /// </summary>
         public static readonly DependencyProperty FlyoutMaxHeightProperty =
             DependencyProperty.Register("FlyoutMaxHeight", typeof(double), typeof(DewFloatButton), new PropertyMetadata(400.0));
-        
+
         /// <summary>
         /// Item text font size
         /// </summary>
@@ -260,12 +261,16 @@ namespace DewUserControls
         public static readonly DependencyProperty FlyoutStyleProperty =
             DependencyProperty.Register("FlyoutStyle", typeof(Style), typeof(DewFloatButton), new PropertyMetadata(null));
 
-        
+
 
         #endregion
+        /// <summary>
+        /// Current selected item if evidence is enabled
+        /// </summary>
+        private int selectedItem = -1;
         private bool isAnimationActive = false;
         /// <summary>
-        /// Animation active propery
+        /// Animation active property
         /// </summary>
         public bool IsAnimationActive
         {
@@ -281,26 +286,41 @@ namespace DewUserControls
             get { return isOpened; }
         }
 
-        private Style defaultFloatButtonStyle = null;
+        private SelectedEvidenceEnum selectedEvidence = SelectedEvidenceEnum.No;
         /// <summary>
-        /// Return the default button style for BasedOn to help in a new style definition
+        /// If true, the floatlist will evidence the last selected item 
         /// </summary>
-        public Style DefaultFloatButtonStyle
+        public SelectedEvidenceEnum SelectedEvidence
         {
-            get { return defaultFloatButtonStyle; }
+            get { return selectedEvidence; }
+            set
+            {
+                selectedEvidence = value;
+                switch (selectedEvidence)
+                {
+                    case SelectedEvidenceEnum.Yes:
+                        {
+                            FloatListView.ItemContainerStyle = this.Resources["ListViewItemStyleEvidence"] as Style;
+                            break;
+                        }
+                    case SelectedEvidenceEnum.No:
+                        {
+                            FloatListView.ItemContainerStyle = this.Resources["ListViewItemStyle"] as Style;
+                            break;
+                        }
+                }
+            }
         }
 
-
-        private Style defaultListStyle = null;
+        private CloseAfterSelected closeAfterSelect = CloseAfterSelected.Yes;
         /// <summary>
-        /// Return the default button style for BasedOn to help in a new style definition
+        /// If true, the floatlist will be closed after selected
         /// </summary>
-        public Style DefaultListStyle
+        public CloseAfterSelected CloseAfterSelect
         {
-            get { return defaultListStyle; }
+            get { return closeAfterSelect; }
+            set { closeAfterSelect = value;  }
         }
-
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -309,8 +329,6 @@ namespace DewUserControls
             this.InitializeComponent();
             this.ButtonStyle = this.Resources["DefaultFloatStyle"] as Style;
             this.FlyoutStyle = this.Resources["DefaultFlyoutStyle"] as Style;
-            this.defaultFloatButtonStyle = this.ButtonStyle;
-            this.defaultListStyle = this.FlyoutStyle;
         }
 
         /// <summary>
@@ -332,6 +350,10 @@ namespace DewUserControls
             var b = FloatButton;
             this.isOpened = true;
             this.FloatButtonOpened?.Invoke();
+            if (this.selectedItem != -1)
+            {
+                FloatListView.SelectedIndex = this.selectedItem;
+            }
             if (this.isAnimationActive)
                 await b.Rotate(duration: 500, delay: 0,
                                 value: 405.0f,
@@ -362,13 +384,24 @@ namespace DewUserControls
         private void FloatListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListView l = sender as ListView;
-            if (l.SelectedItem != null)
+            if (l.SelectedItem != null && (this.selectedItem < 0 || this.selectedItem != l.SelectedIndex))
             {
                 DewFloatButtonItem d = l.SelectedItem as DewFloatButtonItem;
-                d.Selected(sender,e);
+                d.Selected(sender, e);
+                if (this.selectedEvidence == SelectedEvidenceEnum.No)
+                {
+                    l.SelectedItem = null;
+                    this.selectedItem = l.SelectedIndex;
+                }
+                if(this.closeAfterSelect == CloseAfterSelected.Yes)
+                    this.CloseFlyout();
             }
-            this.CloseFlyout();
-            l.SelectedItem = null;
+            if (l.SelectedIndex != -1)
+            {
+                this.selectedItem = l.SelectedIndex;
+            }
+
+
         }
         /// <summary>
         /// Force the flyout close
@@ -377,5 +410,6 @@ namespace DewUserControls
         {
             this.FloatContainer.Hide();
         }
+
     }
 }

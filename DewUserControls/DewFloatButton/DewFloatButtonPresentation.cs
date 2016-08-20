@@ -11,6 +11,22 @@ namespace DewUserControls.DewFloatButtonPresentation
     namespace Types
     {
         /// <summary>
+        /// Close after selected enum
+        /// </summary>
+        public enum CloseAfterSelected
+        {
+            Yes,
+            No
+        }
+        /// <summary>
+        /// Evidence selected enum
+        /// </summary>
+        public enum SelectedEvidenceEnum
+        {
+            Yes,
+            No
+        }
+        /// <summary>
         /// Float button selected handler
         /// </summary>
         public delegate void FloatButtonSelectedHandler(object sender, SelectionChangedEventArgs e);
@@ -30,6 +46,8 @@ namespace DewUserControls.DewFloatButtonPresentation
             /// <summary>
             /// Event occurs when this item is selected
             /// </summary>
+           
+
             public event FloatButtonSelectedHandler OnSelected = null;
             /// <summary>
             /// Invoke the selected events
