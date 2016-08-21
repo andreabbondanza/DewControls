@@ -9,7 +9,7 @@
     x:Name="Dialog"
     Background="Gray"
     d:DesignHeight="300"
-    xmlns:dcv="using:DewCommonControlsLibrary.DewCommonControlsLibraryConverters"
+    xmlns:dcv="using:DewCommonLibrary.Converters"
     Visibility="{x:Bind IsVisible, Converter={StaticResource BoolToVisibilityConverter},Mode=OneWay}"
     d:DesignWidth="400">
     <UserControl.Resources>

@@ -1,4 +1,4 @@
-﻿using DewCommonControlsLibrary;
+﻿using DewCommonLibrary;
 using DewUserControls.DewLoaderPresentation.Types;
 using Windows.UI;
 using Windows.UI.Xaml;

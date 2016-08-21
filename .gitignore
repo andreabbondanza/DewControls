@@ -237,3 +237,5 @@ _Pvt_Extensions
 /NugetPackage
 /DewUserControls/DewUserControls.nuspec
 /DewUserControls/nuget.exe
+/DewCommonControlsLibrary/nuget.exe
+/oldPkg

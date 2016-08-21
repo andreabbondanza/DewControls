@@ -7,8 +7,8 @@
     <ProjectGuid>{6DF6CFF7-61F2-4383-B46F-2E9A6FF2E33E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DewCommonControlsLibrary</RootNamespace>
-    <AssemblyName>DewCommonControlsLibrary</AssemblyName>
+    <RootNamespace>DewCommonLibrary</RootNamespace>
+    <AssemblyName>DewCommonLibrary</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -35,7 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\DewCommonControlsLibrary.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\DewCommonLibrary.xml</DocumentationFile>
     <GenerateLibraryLayout>false</GenerateLibraryLayout>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
@@ -110,7 +110,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DewCommonControlsLibrary.cs" />
+    <Compile Include="DewCommonLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DewCommonControlsLibrary.rd.xml" />
   </ItemGroup>

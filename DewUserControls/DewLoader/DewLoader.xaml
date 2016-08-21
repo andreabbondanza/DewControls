@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cv="using:DewUserControls.DewLoaderPresentation.Converters"
-    xmlns:dcv="using:DewCommonControlsLibrary.DewCommonControlsLibraryConverters"
+    xmlns:dcv="using:DewCommonLibrary.Converters"
     Visibility="{x:Bind Path=IsVisible,Converter={StaticResource BoolToVisibilityConverter},Mode=OneWay}"
     mc:Ignorable="d"
     d:DesignHeight="300"

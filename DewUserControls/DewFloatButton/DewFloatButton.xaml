@@ -5,7 +5,7 @@
     xmlns:local="using:DewUserControls"
     xmlns:pr="using:DewUserControls.DewFloatButtonPresentation.Types"    
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
-    xmlns:dc="using:DewCommonControlsLibrary.DewCommonControlsLibraryConverters"
+    xmlns:dc="using:DewCommonLibrary.Converters"
     x:Name="FloatButton">
     <UserControl.Resources>
         <dc:DebugConverter x:Key="dbconv"></dc:DebugConverter>

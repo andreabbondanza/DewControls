@@ -5,7 +5,7 @@
     xmlns:local="using:DewUserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cv="using:DewCommonControlsLibrary.DewCommonControlsLibraryConverters"
+    xmlns:cv="using:DewCommonLibrary.Converters"
     mc:Ignorable="d"
     Visibility="{x:Bind Path=IsVisible,Converter={StaticResource BoolToVisibilityConverter},Mode=OneWay}"
     d:DesignHeight="300"

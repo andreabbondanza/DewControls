@@ -45,32 +45,32 @@ namespace DewUserControls
         /// <summary>
         /// Static listview for xaml
         /// </summary>
-        public ListView FloatButtonListView
+        public UIElement FloatButtonListView
         {
-            get { return (ListView)GetValue(FloatButtonListViewProperty); }
+            get { return (UIElement)GetValue(FloatButtonListViewProperty); }
             set { SetValue(FloatButtonListViewProperty, value); }
         }
         /// <summary>
         /// Using a DependencyProperty as the backing store for FloatButtonListView.  This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty FloatButtonListViewProperty =
-            DependencyProperty.Register("FloatButtonListView", typeof(ListView), typeof(DewFloatButton), new PropertyMetadata(null));
+            DependencyProperty.Register("FloatButtonListView", typeof(UIElement), typeof(DewFloatButton), new PropertyMetadata(null));
 
 
 
         /// <summary>
         /// The float button content
         /// </summary>
-        public object FloatButtonContent
+        public UIElement FloatButtonContent
         {
-            get { return (object)GetValue(FloatButtonContentProperty); }
+            get { return (UIElement)GetValue(FloatButtonContentProperty); }
             set { SetValue(FloatButtonContentProperty, value); }
         }
         /// <summary>
         /// Using a DependencyProperty as the backing store for FloatButtonContent.  This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty FloatButtonContentProperty =
-            DependencyProperty.Register("FloatButtonContent", typeof(object), typeof(DewFloatButton), new PropertyMetadata(null));
+            DependencyProperty.Register("FloatButtonContent", typeof(UIElement), typeof(DewFloatButton), new PropertyMetadata(null));
 
         /// <summary>
         /// The float button background

@@ -159,9 +159,9 @@
     <Folder Include="DewWaffleMenu\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DewCommonControlsLibrary\DewCommonControlsLibrary.csproj">
+    <ProjectReference Include="..\DewCommonControlsLibrary\DewCommonLibrary.csproj">
       <Project>{6df6cff7-61f2-4383-b46f-2e9a6ff2e33e}</Project>
-      <Name>DewCommonControlsLibrary</Name>
+      <Name>DewCommonLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

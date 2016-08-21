@@ -10,14 +10,14 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace DewCommonControlsLibrary
+namespace DewCommonLibrary
 {
     namespace AppSettingsHelper
     {
         /// <summary>
         /// Helper for AppSettings
         /// </summary>
-        class AppSettings
+        public class AppSettings
         {
             /// <summary>
             /// Set the local setting with the containskey control.
@@ -144,7 +144,7 @@ namespace DewCommonControlsLibrary
             }
         }
     }
-    namespace DewCommonControlsLibraryConverters
+    namespace Converters
     {
         /// <summary>
         /// Convert a bool to a Visibile object on Convert, reverse in ConvertBack
