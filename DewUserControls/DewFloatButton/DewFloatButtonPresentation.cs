@@ -15,7 +15,13 @@ namespace DewUserControls.DewFloatButtonPresentation
         /// </summary>
         public enum CloseAfterSelected
         {
+            /// <summary>
+            /// Yes
+            /// </summary>
             Yes,
+            /// <summary>
+            /// No
+            /// </summary>
             No
         }
         /// <summary>
@@ -23,7 +29,13 @@ namespace DewUserControls.DewFloatButtonPresentation
         /// </summary>
         public enum SelectedEvidenceEnum
         {
+            /// <summary>
+            /// Yes
+            /// </summary>
             Yes,
+            /// <summary>
+            /// No
+            /// </summary>
             No
         }
         /// <summary>
