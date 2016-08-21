@@ -13,7 +13,7 @@ namespace DewUserControls.DewFloatButtonPresentation
         /// <summary>
         /// Close after selected enum
         /// </summary>
-        public enum CloseAfterSelected
+        public enum CloseAfterSelectedEnum
         {
             /// <summary>
             /// Yes
@@ -41,7 +41,7 @@ namespace DewUserControls.DewFloatButtonPresentation
         /// <summary>
         /// Float button selected handler
         /// </summary>
-        public delegate void FloatButtonSelectedHandler(object sender, SelectionChangedEventArgs e);
+        public delegate void DewFloatButtonSelectedHandler(object sender, SelectionChangedEventArgs e);
         /// <summary>
         /// Flyout default item
         /// </summary>
@@ -50,7 +50,7 @@ namespace DewUserControls.DewFloatButtonPresentation
             /// <summary>
             /// Glyph, image, icon, textbox, choose whatever you want
             /// </summary>
-            public Object Icon { get; set; }
+            public UIElement Icon { get; set; }
             /// <summary>
             /// Listitem label
             /// </summary>
@@ -60,7 +60,7 @@ namespace DewUserControls.DewFloatButtonPresentation
             /// </summary>
            
 
-            public event FloatButtonSelectedHandler OnSelected = null;
+            public event DewFloatButtonSelectedHandler OnSelected = null;
             /// <summary>
             /// Invoke the selected events
             /// </summary>

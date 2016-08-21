@@ -34,57 +34,57 @@ namespace DewUserControls
         /// <summary>
         /// List closed event
         /// </summary>
-        public event Action FloatButtonClosed = null;
+        public event Action DewFloatButtonClosed = null;
         /// <summary>
         /// List opened event
         /// </summary>
-        public event Action FloatButtonOpened = null;
+        public event Action DewFloatButtonOpened = null;
         #endregion
         #region dependency
 
         /// <summary>
         /// Static listview for xaml
         /// </summary>
-        public UIElement FloatButtonListView
+        public UIElement DewFloatButtonListView
         {
-            get { return (UIElement)GetValue(FloatButtonListViewProperty); }
-            set { SetValue(FloatButtonListViewProperty, value); }
+            get { return (UIElement)GetValue(DewFloatButtonListViewProperty); }
+            set { SetValue(DewFloatButtonListViewProperty, value); }
         }
         /// <summary>
         /// Using a DependencyProperty as the backing store for FloatButtonListView.  This enables animation, styling, binding, etc...
         /// </summary>
-        public static readonly DependencyProperty FloatButtonListViewProperty =
-            DependencyProperty.Register("FloatButtonListView", typeof(UIElement), typeof(DewFloatButton), new PropertyMetadata(null));
+        public static readonly DependencyProperty DewFloatButtonListViewProperty =
+            DependencyProperty.Register("DewFloatButtonListView", typeof(UIElement), typeof(DewFloatButton), new PropertyMetadata(null));
 
 
 
         /// <summary>
         /// The float button content
         /// </summary>
-        public UIElement FloatButtonContent
+        public UIElement DewFloatButtonContent
         {
-            get { return (UIElement)GetValue(FloatButtonContentProperty); }
-            set { SetValue(FloatButtonContentProperty, value); }
+            get { return (UIElement)GetValue(DewFloatButtonContentProperty); }
+            set { SetValue(DewFloatButtonContentProperty, value); }
         }
         /// <summary>
         /// Using a DependencyProperty as the backing store for FloatButtonContent.  This enables animation, styling, binding, etc...
         /// </summary>
-        public static readonly DependencyProperty FloatButtonContentProperty =
-            DependencyProperty.Register("FloatButtonContent", typeof(UIElement), typeof(DewFloatButton), new PropertyMetadata(null));
+        public static readonly DependencyProperty DewFloatButtonContentProperty =
+            DependencyProperty.Register("DewFloatButtonContent", typeof(UIElement), typeof(DewFloatButton), new PropertyMetadata(null));
 
         /// <summary>
         /// The float button background
         /// </summary>
-        public Brush FloatButtonBackground
+        public Brush DewFloatButtonBackground
         {
-            get { return (Brush)GetValue(FloatButtonBackgroundProperty); }
-            set { SetValue(FloatButtonBackgroundProperty, value); }
+            get { return (Brush)GetValue(DewFloatButtonBackgroundProperty); }
+            set { SetValue(DewFloatButtonBackgroundProperty, value); }
         }
         /// <summary>
         /// Using a DependencyProperty as the backing store for FloatButtonBackground.  This enables animation, styling, binding, etc...
         /// </summary>
-        public static readonly DependencyProperty FloatButtonBackgroundProperty =
-            DependencyProperty.Register("FloatButtonBackground", typeof(Brush), typeof(DewFloatButton), new PropertyMetadata(new SolidColorBrush(Colors.Blue)));
+        public static readonly DependencyProperty DewFloatButtonBackgroundProperty =
+            DependencyProperty.Register("DewFloatButtonBackground", typeof(Brush), typeof(DewFloatButton), new PropertyMetadata(new SolidColorBrush(Colors.Blue)));
 
 
         /// <summary>
@@ -312,11 +312,11 @@ namespace DewUserControls
             }
         }
 
-        private CloseAfterSelected closeAfterSelect = CloseAfterSelected.Yes;
+        private CloseAfterSelectedEnum closeAfterSelect = CloseAfterSelectedEnum.Yes;
         /// <summary>
         /// If true, the floatlist will be closed after selected
         /// </summary>
-        public CloseAfterSelected CloseAfterSelect
+        public CloseAfterSelectedEnum CloseAfterSelect
         {
             get { return closeAfterSelect; }
             set { closeAfterSelect = value;  }
@@ -349,7 +349,7 @@ namespace DewUserControls
         {
             var b = FloatButton;
             this.isOpened = true;
-            this.FloatButtonOpened?.Invoke();
+            this.DewFloatButtonOpened?.Invoke();
             if (this.selectedItem != -1)
             {
                 FloatListView.SelectedIndex = this.selectedItem;
@@ -368,7 +368,7 @@ namespace DewUserControls
         private async void FloatContainer_Closed(object sender, object e)
         {
             var b = FloatButton;
-            this.FloatButtonClosed?.Invoke();
+            this.DewFloatButtonClosed?.Invoke();
             this.isOpened = false;
             if (this.isAnimationActive)
                 await b.Rotate(duration: 500, delay: 0,
@@ -393,7 +393,7 @@ namespace DewUserControls
                     l.SelectedItem = null;
                     this.selectedItem = l.SelectedIndex;
                 }
-                if(this.closeAfterSelect == CloseAfterSelected.Yes)
+                if(this.closeAfterSelect == CloseAfterSelectedEnum.Yes)
                     this.CloseFlyout();
             }
             if (l.SelectedIndex != -1)

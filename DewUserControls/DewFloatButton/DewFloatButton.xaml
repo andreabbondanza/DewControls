@@ -91,10 +91,10 @@
     </UserControl.Resources>
     <!-- workaround for flyout datacontext, bind the UC to button DC -->
     <Button x:Name="Float" VerticalAlignment="Center" HorizontalAlignment="Center" 
-            Background="{x:Bind FloatButtonBackground, Mode=OneWay}"
+            Background="{x:Bind DewFloatButtonBackground, Mode=OneWay}"
             Style="{x:Bind ButtonStyle, Mode=OneWay}" 
             DataContext="{Binding ElementName=FloatButton}"
-            Tapped="Float_Tapped" Content="{x:Bind FloatButtonContent,Mode=OneWay}">
+            Tapped="Float_Tapped" Content="{x:Bind DewFloatButtonContent,Mode=OneWay}">
         <Button.Flyout>
             <Flyout x:Name="FloatContainer" FlyoutPresenterStyle="{x:Bind FlyoutStyle, Mode=OneWay}"
                     Opened="FloatContainer_Opened" Closed="FloatContainer_Closed">
@@ -145,7 +145,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ContentControl Content="{x:Bind FloatButtonListView,Mode=OneWay}" HorizontalContentAlignment="Stretch"
+                    <ContentControl Content="{x:Bind DewFloatButtonListView,Mode=OneWay}" HorizontalContentAlignment="Stretch"
                                     Visibility="{x:Bind FlyoutItemsSource, Converter={StaticResource NullToVis}, ConverterParameter=inv }"></ContentControl>
                 </Grid>
             </Flyout>
