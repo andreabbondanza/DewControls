@@ -7,19 +7,30 @@ However, I will update the repository if I find news about this.
 
 >For more information you can check the __inline__ documentation
 
+##Helpers
+In the namespace DewCommonLibrary you can find some helper and some converter.
+Converters:
+- BoolToVisibilityConverter
+- VisibilityToBoolConverter
+- DebugConverter
+- ColorToNullableColor
+- NullToVisibilityConverter
+
+Helpers:
+- AppSettings - An easy way to use localsettings
+
 ##Controls list
 - Hamburger drawer
 - Dialog Window
 - Toast alerts
 - Toast loader
+- Float Button
 
 ###Work in progress
 - Waffle menu
-- Floating button (like google inbox)
 
-##AppStudio
-Before the appstudio release, I wrote a library for animations, etc. After AppStudio release, I've updated this library with it.
-Now the library contains helpers and other stuff like converters.
+##Microsoft Community Toolkit
+In this version I've removed AppStudio and I started to use Microsoft Community Toolkit.
 
 ##Hamburger
 The Hamburger is __highly customizable__. You can check the customizable properties here.
@@ -71,7 +82,7 @@ There aren't public methods
     </dc:DewHamburgerMenu.Content>  
 </dc:DewHamburgerMenu>
 ```
-###Some screen
+###Some screens
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160809_0002.png" width="200"/>
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160809_0001.png" width="200"/>
 
@@ -105,7 +116,7 @@ In code behind
 ```c#
 await Popup.ShowPopupMessageAsync("example", 2000);
 ```
-###Some screen
+###Some screens
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160809_0003.png" width="200"/>
 
 
@@ -210,8 +221,118 @@ In code behind
 await Loader.ShowDialogAsync(500);
 ```
 
-###Some screen
+###Some screens
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160809_0004.png" width="200"/>
+
+##Float Button
+This control is similar to the button in Google Inbox App.
+It's high customizable but also easy to use. I've used a mutual exclusion pattern to made this.
+You have a default ListView in the DewFloatButton container for an immediate use, but you can also write in the DewFloatButton container whatever you want, let's see how.
+
+###Custom stuff
+The DewFloatButton control has a content control that can show whathever you want through the property __FloatButtonListView__ (don't be confused by name, the property is an UIElement and can be whatever you want, I've just used this name because the default use of DewFloatButton is with a ListView).
+This property is in mutual exclusion with __FlyoutItemsSource__ where, if __FlyoutItemsSource__ is null the __FloatButtonListView__ is showed.
+
+Es.
+```xaml
+<dc:DewFloatButton x:Name="FloatButton" 
+                           Margin="10,10,20,30" VerticalAlignment="Bottom" Tapped="FloatButton_Tapped" 
+                           DewFloatButtonBackground="#FF5AC350" 
+                           DewFloatButtonClosed="FloatButton_FloatButtonClosed" 
+                           DewFloatButtonOpened="FloatButton_FloatButtonOpened"                            
+                           HorizontalAlignment="Right"                            
+                           FlyoutWidth="250"
+                           FlyoutMaxHeight="500">
+            <dc:DewFloatButton.FloatButtonContent>
+                <FontIcon Glyph="&#xE109;" Foreground="WhiteSmoke" ></FontIcon>
+            </dc:DewFloatButton.FloatButtonContent>
+            <dc:DewFloatButton.FloatButtonListView>
+                <TextBlock>
+                    Mmm, I want just a text in here
+                </TextBlock>
+            </dc:DewFloatButton.FloatButtonListView>
+        </dc:DewFloatButton>
+```
+There are also a lot of properties that work with the default ListView and, obviously if you set them are unuseful if you user your stuff in __FloatButtonListView__.
+
+###Work with default ListView
+If you don't want spend much time working on a particular custom listview (or whatever you want) you can use the default ListView in __DewFloatButton__ control. You just need to bind the __FlyoutItemsSource__ to a collection of __DewFloatButtonItem__.
+A __DewFloatButtonItem__ is an class that contains two properties, an event and a method:
+- Icon: __UIElement__ - This field should be a graphic element like an icon, FontIcon, image, etc. Don't set it if you don't want show it.
+- Text: __string__ - The item text
+- OnSelected: __DewFloatButtonSelectedHandler(object, SelectionChangedEventArgs)__ - Selected item handler
+- Selected: _void(object, SelectionChangedEventArgs)__ - Invoke the handler if you need
+
+The __DewFloatButton__ ListView will be automatically populated.
+The default ListView works in differents ways. You can set those ways through the __DewFloatButton__ properties for items.
+
+Es.
+```xaml
+  <dc:DewFloatButton x:Name="FloatButton" 
+                           Margin="10,10,20,30" VerticalAlignment="Bottom" Tapped="FloatButton_Tapped" 
+                           DewFloatButtonBackground="#FF5AC350" 
+                           DewFloatButtonClosed="FloatButton_FloatButtonClosed" 
+                           DewFloatButtonOpened="FloatButton_FloatButtonOpened" 
+                           SelectedEvidence="Yes" FlyoutItemsSource="{x:Bind ViewModel.DewItemsCollection, Mode=OneWay}"
+                           CloseAfterSelect="Yes"
+                           HorizontalAlignment="Right" 
+                           ItemTextFontSize="22"
+                           FlyoutWidth="250"
+                           FlyoutMaxHeight="500"
+                           ItemHeight="60"
+                           ItemTextForeground="White"
+                           ItemTextBackground="Transparent"
+                           IsAnimationActive="True"
+                           ItemTextHorizontalAlignment="Right"
+                           >
+            <dc:DewFloatButton.FloatButtonContent>
+                <FontIcon Glyph="&#xE109;" Foreground="WhiteSmoke" ></FontIcon>
+            </dc:DewFloatButton.FloatButtonContent>
+
+        </dc:DewFloatButton>
+```
+
+###Properties
+- CloseAfterSelectedEnum:__enum__  
+values: Yes, No
+- SelectedEvidenceEnum:__enum__  
+values: Yes, No
+- DewFloatbuttonListView: __UIElement__ - The container to show custom stuff
+- DewFloatButtonContent: __UIElement__ - The content of DewFloatButton button
+- DewFloatButtonBackground: __Brush__ - DewFloatButton button background
+- FlyoutMaxHeight:__double__ - The max height for DewFloatButton container
+- ItemTextFontSize:__double__ - The item text font size
+- ItemTextFontFamily: __FontFamily__ - The item text font family
+- ItemTextForeground: __Brush__ - The item text foreground
+- ItemTextBackground: __Brush__ - The item text background
+- ItemTextHorizontalAlignment: __HorizontalAlignment__ - The item text horizontal alignment
+- ItemBackground: __Brush__ - The full item background
+- FlyoutWidth: __double__ - The width of DewFloatButton container
+- ItemHeight: __double__ - The item height
+- FlyoutItemsSource: __ICollection<DewFloatButtonItem>__ - The itemsource for default ListView
+- ButtonStyle:__Style__ - A custom style for DewFloatButton
+- FlyoutStyle:__Style__ - A custom style for flyout element (DewFloatButton container)
+- IsAnimationActive:__bool__ - True if you want animation for DewFloatButton, false if not
+- IsOpened:__bool__ - Return the state of DewFloatButton container
+- SelectedEvidence:__SelectedEvidenceEnum__ - Indicates if an item selected should be highlighted
+- CloseAfterSelect:__CloseAfterSelectedEnum__ - Indicates if DewFloatButton container must be closed after than an element has been selected
+
+###Events
+- Tapped:__TappedEventHandler(object: Content,TappedRoutedEventArgs)__
+- DewFloatButtonClosed:__Action()__
+- DewFloatButtonOpened:__Action()__
+
+###Methods
+- CloseFlyout():__void__
+
+###Example
+See first section
+
+###Some screens
+<img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160819_0003.png" width="200"/>
+<img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160819_0005.png" width="200"/>
+<img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160819_0004.png" width="200"/>
+
 
 
 ##Other sources
@@ -221,3 +342,6 @@ You can see some of those controls in the [Photove App](https://www.microsoft.co
 
 ###Nuget
 You can find controls on [nuget](https://www.nuget.org/packages/DewUserControls/)
+
+###Some docs
+[andrewdev](http://www.andrewdev.eu)
