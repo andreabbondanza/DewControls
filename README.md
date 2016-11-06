@@ -243,14 +243,14 @@ Es.
                            HorizontalAlignment="Right"                            
                            FlyoutWidth="250"
                            FlyoutMaxHeight="500">
-            <dc:DewFloatButton.FloatButtonContent>
+            <dc:DewFloatButton.DewFloatButtonContent>
                 <FontIcon Glyph="&#xE109;" Foreground="WhiteSmoke" ></FontIcon>
-            </dc:DewFloatButton.FloatButtonContent>
-            <dc:DewFloatButton.FloatButtonListView>
+            </dc:DewFloatButton.DewFloatButtonContent>
+            <dc:DewFloatButton.DewFloatButtonListView>
                 <TextBlock>
                     Mmm, I want just a text in here
                 </TextBlock>
-            </dc:DewFloatButton.FloatButtonListView>
+            </dc:DewFloatButton.DewFloatButtonListView>
         </dc:DewFloatButton>
 ```
 There are also a lot of properties that work with the default ListView and, obviously if you set them are unuseful if you user your stuff in __FloatButtonListView__.
@@ -285,9 +285,9 @@ Es.
                            IsAnimationActive="True"
                            ItemTextHorizontalAlignment="Right"
                            >
-            <dc:DewFloatButton.FloatButtonContent>
+            <dc:DewFloatButton.DewFloatButtonContent>
                 <FontIcon Glyph="&#xE109;" Foreground="WhiteSmoke" ></FontIcon>
-            </dc:DewFloatButton.FloatButtonContent>
+            </dc:DewFloatButton.DewFloatButtonContent>
 
         </dc:DewFloatButton>
 ```
