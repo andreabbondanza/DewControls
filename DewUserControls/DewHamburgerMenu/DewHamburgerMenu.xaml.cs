@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DewUserControls.DewHamburgerMenuPresentation.Types;
 using Windows.Foundation;
 using Windows.UI;
@@ -261,6 +262,8 @@ namespace DewUserControls
         #endregion
 
         #endregion
+
+        
         /// <summary>
         /// Constructor
         /// </summary>
@@ -281,8 +284,7 @@ namespace DewUserControls
         {
             HamburgerAnimationOpening();
             HamburgerTapped?.Invoke(sender, e);
-            IsPaneOpened = !IsPaneOpened;
-            
+            IsPaneOpened = !IsPaneOpened;            
         }
 
         /// <summary>
@@ -290,7 +292,6 @@ namespace DewUserControls
         /// </summary>
         private void HamburgerAnimationOpening()
         {
-            HamburgerBackgroundColor = new SolidColorBrush(this.HamburgerBackgroundPressed);
             AnimateHamburgerToTarget();
         }
 
@@ -347,23 +348,8 @@ namespace DewUserControls
             
         }
 
-        /// <summary>
-        /// Animate hamburger for closing
-        /// </summary>
-        private void HamburgerAnimationClosing()
-        {
-            HamburgerBackgroundColor = new SolidColorBrush(this.HamburgerBackground);
-        }
 
-        /// <summary>
-        /// Animation hamburger completed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void HamburgerButtonCompleted(object sender, object e)
-        {
-            HamburgerAnimationClosing();
-        }
+
 
         /// <summary>
         /// Panel closed event
@@ -384,6 +370,7 @@ namespace DewUserControls
         {
             PaneClosing?.Invoke(sender, args);
         }
+
 
         /// <summary>
         /// Open panel with swipe
@@ -424,6 +411,25 @@ namespace DewUserControls
                 }             
             }
         }
-
+        /// <summary>
+        /// Change hamburger background when pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HamburgerButton_Pressed(object sender, PointerRoutedEventArgs e)
+        {
+            Grid g = sender as Grid;
+            g.Background = new SolidColorBrush(this.HamburgerBackgroundPressed);
+        }
+        /// <summary>
+        /// Change hamburger background when released
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HamburgerButton_Released(object sender, PointerRoutedEventArgs e)
+        {
+            Grid g = sender as Grid;
+            g.Background = this.HamburgerBackgroundColor;
+        }
     }
 }

@@ -15,6 +15,7 @@
     d:DesignWidth="400">
     <UserControl.Resources>
         <dc:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <dc:ColorToNullableColor x:Key="ColorToNullableColor"/>
         <dcp:HamburgerTypeToDisplayMode x:Key="HamburgerTypeToDisplayMode" />
         <dcp:HamburgerTypeToPanePlace x:Key="HamburgerTypeToPanePlace" />
         <dcp:HamburgerTypeToHorizontalAlighment x:Key="HamburgerTypeToHorizontalAlighment"/>
@@ -73,10 +74,8 @@
                 <ColumnDefinition Width="{x:Bind HamburgerType, Converter={StaticResource HamburgerTypeToColumnWidth},ConverterParameter=first,Mode=OneWay}"/>
                 <ColumnDefinition Width="{x:Bind HamburgerType, Converter={StaticResource HamburgerTypeToColumnWidth},ConverterParameter=second ,Mode=OneWay}"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHamburgerPositionColumn},ConverterParameter=first, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="HamburgerButton_Tapped">
-                <Grid.Background>
-                    <SolidColorBrush x:Name="HamburgerBackgroundColor" Color="{x:Bind HamburgerBackground,Mode=OneWay}"></SolidColorBrush>
-                </Grid.Background>
+            <Grid Grid.Column="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHamburgerPositionColumn},ConverterParameter=first, Mode=OneWay}" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Tapped="HamburgerButton_Tapped" x:Name="HamburgerBorderButton" PointerPressed="HamburgerButton_Pressed" PointerReleased="HamburgerButton_Released" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
                         x:Name="HamburgerButton">
                     <Rectangle x:Name="FirstLine" Margin="5,2" Fill="{x:Bind HamburgerForeground,Mode=OneWay}" Width="20" Height="2" RenderTransformOrigin="0.5,0.5">
@@ -95,6 +94,9 @@
                         </Rectangle.RenderTransform>
                     </Rectangle>
                 </StackPanel>
+                <Grid.Background>
+                    <SolidColorBrush x:Name="HamburgerBackgroundColor"></SolidColorBrush>
+                </Grid.Background>
             </Grid>
             <Grid Grid.Column="{x:Bind HamburgerType,Converter={StaticResource HamburgerTypeToHamburgerPositionColumn},ConverterParameter=second, Mode=OneWay}">
                 <ContentControl Content="{x:Bind BarContent,Mode=OneWay}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>

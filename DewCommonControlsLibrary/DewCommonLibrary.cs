@@ -242,7 +242,7 @@ namespace DewCommonLibrary
             /// <returns></returns>
             public object Convert(object value, Type targetType, object parameter, string language)
             {
-                Color c = (Color)value;
+                Color? c = (Color?)value;
                 return c;
             }
             /// <summary>
