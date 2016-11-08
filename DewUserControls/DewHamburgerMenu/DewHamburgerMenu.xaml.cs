@@ -263,7 +263,7 @@ namespace DewUserControls
 
         #endregion
 
-        
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -284,7 +284,7 @@ namespace DewUserControls
         {
             HamburgerAnimationOpening();
             HamburgerTapped?.Invoke(sender, e);
-            IsPaneOpened = !IsPaneOpened;            
+            IsPaneOpened = !IsPaneOpened;
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace DewUserControls
                 default:
                     break;
             }
-            
+
         }
 
 
@@ -408,7 +408,7 @@ namespace DewUserControls
                         }
                     default:
                         break;
-                }             
+                }
             }
         }
         /// <summary>
@@ -426,9 +426,10 @@ namespace DewUserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void HamburgerButton_Released(object sender, PointerRoutedEventArgs e)
+        private async void HamburgerButton_Released(object sender, PointerRoutedEventArgs e)
         {
             Grid g = sender as Grid;
+            await Task.Delay(200);
             g.Background = this.HamburgerBackgroundColor;
         }
     }
