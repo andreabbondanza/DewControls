@@ -121,6 +121,10 @@
       <DependentUpon>DewHamburgerMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="DewHamburgerMenu\DewHamburgerMenuPresentation.cs" />
+    <Compile Include="DewListSelector\DewListSelector.xaml.cs">
+      <DependentUpon>DewListSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DewListSelector\DewListSelectorPresentation.cs" />
     <Compile Include="DewLoader\DewLoader.xaml.cs">
       <DependentUpon>DewLoader.xaml</DependentUpon>
     </Compile>
@@ -144,6 +148,10 @@
     <Page Include="DewHamburgerMenu\DewHamburgerMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DewListSelector\DewListSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DewLoader\DewLoader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,9 +165,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DewWaffleMenu\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DewCommonControlsLibrary\DewCommonLibrary.csproj">
       <Project>{6df6cff7-61f2-4383-b46f-2e9a6ff2e33e}</Project>
