@@ -1,34 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Dewcontrols by andreabbondanza</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>Dewcontrols by andreabbondanza</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
+    <div class="wrapper">
+      <header>
         <h1>Dewcontrols</h1>
-        <h2>A simple collection of controls and utility for UWP applications</h2>
-        <a href="https://github.com/andreabbondanza/DewControls" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+        <p>A simple collection of controls and utility for UWP applications</p>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+        <p class="view"><a href="https://github.com/andreabbondanza/DewControls">View the Project on GitHub <small>andreabbondanza/DewControls</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/andreabbondanza/DewControls/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/andreabbondanza/DewControls/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/andreabbondanza/DewControls">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a id="dew-controls" class="anchor" href="#dew-controls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DEW CONTROLS</h1>
 
 <h2>
@@ -94,32 +94,32 @@ Converters:</p>
 <a id="properties" class="anchor" href="#properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h3>
 
 <ul>
-<li>HamburgerType:<strong>enum</strong><br>
+<li>HamburgerType: <strong>enum</strong><br>
 values:  LeftSide, LeftSideCompact, LeftSideCompactInLine, LeftSideInLine, RightSide, RightSideCompact, RightSideCompactInLine, RightSideInLine </li>
-<li>HamburgerButtonAnimation:<strong>enum</strong><br>
+<li>HamburgerButtonAnimation: <strong>enum</strong><br>
 values:  No, ToArrow, ToVertical</li>
-<li>IsPaneOpeend:<strong>bool</strong> - Get or set the value of panel (and open and close it)</li>
-<li>IsSwipeOpenEnabled:<strong>bool</strong> - Get or set the value of "open with swipe" feature</li>
-<li>IsHamburgerButtonAnimationEnabled:<strong>bool</strong> - Get or set the value for the "hamburger button animation feature"</li>
-<li>BarBackgroundColor:<strong>Brush</strong> - The top bar background</li>
-<li>BarContent:<strong>UIElement</strong> - The content of the top bar</li>
-<li>HamburgerForeground:<strong>Brush</strong> - The hamburger button foreground</li>
-<li>HamburgerBackground:<strong>Color</strong> - The hamburger button background color</li>
-<li>HamburgerBackgroundPressed:<strong>Color</strong> - The hamburger button background color when pressed</li>
-<li>PaneBackground:<strong>Brush</strong> - The panel background</li>
-<li>PaneContent:<strong>UIElement</strong> - The panel content</li>
-<li>ContentBackground:<strong>Brush</strong> - The main content background</li>
-<li>OpenedPaneLength:<strong>double</strong> - The size of opened panel</li>
-<li>Content:<strong>UIElement</strong> - The main content</li>
+<li>IsPaneOpeend: <strong>bool</strong> - Get or set the value of panel (and open and close it)</li>
+<li>IsSwipeOpenEnabled: <strong>bool</strong> - Get or set the value of "open with swipe" feature</li>
+<li>IsHamburgerButtonAnimationEnabled: <strong>bool</strong> - Get or set the value for the "hamburger button animation feature"</li>
+<li>BarBackgroundColor: <strong>Brush</strong> - The top bar background</li>
+<li>BarContent: <strong>UIElement</strong> - The content of the top bar</li>
+<li>HamburgerForeground: <strong>Brush</strong> - The hamburger button foreground</li>
+<li>HamburgerBackground: <strong>Color</strong> - The hamburger button background color</li>
+<li>HamburgerBackgroundPressed: <strong>Color</strong> - The hamburger button background color when pressed</li>
+<li>PaneBackground: <strong>Brush</strong> - The panel background</li>
+<li>PaneContent: <strong>UIElement</strong> - The panel content</li>
+<li>ContentBackground: <strong>Brush</strong> - The main content background</li>
+<li>OpenedPaneLength: <strong>double</strong> - The size of opened panel</li>
+<li>Content: <strong>UIElement</strong> - The main content</li>
 </ul>
 
 <h3>
 <a id="events" class="anchor" href="#events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h3>
 
 <ul>
-<li>HamburgerTapped:<strong>TappedEventHandler</strong> - Fired when hamburger button is tapped (not with swipe)</li>
-<li>PaneClosed:<strong>TypedEventHandler</strong> - Fired when panel is closed</li>
-<li>PaneClosing:<strong>TypedEventHandler</strong> - Fired when panel is closing</li>
+<li>HamburgerTapped: <strong>TappedEventHandler</strong> - Fired when hamburger button is tapped (not with swipe)</li>
+<li>PaneClosed: <strong>TypedEventHandler</strong> - Fired when panel is closed</li>
+<li>PaneClosing: <strong>TypedEventHandler</strong> - Fired when panel is closing</li>
 </ul>
 
 <h3>
@@ -163,14 +163,14 @@ values:  No, ToArrow, ToVertical</li>
 <a id="properties-1" class="anchor" href="#properties-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h3>
 
 <ul>
-<li>MessageFontFamily:<strong>FontFamily</strong> - The font family for text in the toast<br>
+<li>MessageFontFamily: <strong>FontFamily</strong> - The font family for text in the toast<br>
 </li>
-<li>MessageFontSize:<strong>double</strong> - The font size in the toast</li>
-<li>CornerRadius:<strong>CornerRadius</strong> - The toast corners</li>
-<li>Background:<strong>Brush</strong> - Toast background</li>
-<li>MessageForeground:<strong>Brush</strong> - Toast text foreground</li>
-<li>Message:<strong>string</strong> - The popup text</li>
-<li>IsVisible:<strong>bool</strong> - Set or get the visibility property</li>
+<li>MessageFontSize: <strong>double</strong> - The font size in the toast</li>
+<li>CornerRadius: <strong>CornerRadius</strong> - The toast corners</li>
+<li>Background: <strong>Brush</strong> - Toast background</li>
+<li>MessageForeground: <strong>Brush</strong> - Toast text foreground</li>
+<li>Message: <strong>string</strong> - The popup text</li>
+<li>IsVisible: <strong>bool</strong> - Set or get the visibility property</li>
 </ul>
 
 <h3>
@@ -182,8 +182,8 @@ values:  No, ToArrow, ToVertical</li>
 <a id="methods-1" class="anchor" href="#methods-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
 
 <ul>
-<li>ShowPopupMessageAsync(<strong>string</strong>:The toast message ,<strong>int</strong>:Time to popup hide (in ms, 0 = infinite),<strong>int</strong>: Animation time (in ms)):<strong>Task</strong> (awaitable)</li>
-<li>HidePopupMessageAsync(<strong>int</strong>: Animation time (in ms)):<strong>Task</strong> (awaitable)</li>
+<li>ShowPopupMessageAsync(<strong>string</strong>:The toast message ,<strong>int</strong>:Time to popup hide (in ms, 0 = infinite),<strong>int</strong>: Animation time (in ms)): <strong>Task</strong> (awaitable)</li>
+<li>HidePopupMessageAsync(<strong>int</strong>: Animation time (in ms)): <strong>Task</strong> (awaitable)</li>
 </ul>
 
 <h3>
@@ -212,19 +212,19 @@ values:  No, ToArrow, ToVertical</li>
 <a id="properties-2" class="anchor" href="#properties-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h3>
 
 <ul>
-<li>RingPosition:<strong>enum</strong><br>
+<li>RingPosition: <strong>enum</strong><br>
 values:Top, Bottom<br>
 </li>
-<li>MessageFontFamily:<strong>FontFamily</strong> - The font family for text in the toast<br>
+<li>MessageFontFamily: <strong>FontFamily</strong> - The font family for text in the toast<br>
 </li>
-<li>MessageFontSize:<strong>double</strong> - The font size in the toast</li>
-<li>CornerRadius:<strong>CornerRadius</strong> - The toast corners</li>
-<li>MessageForeground:<strong>Brush</strong> - Toast text foreground</li>
-<li>Message:<strong>string</strong> - The popup text</li>
-<li>Background:<strong>Brush</strong> - Toast background</li>
-<li>IsRingEnabled:<strong>bool</strong> - Set\get the ring abilitation</li>
-<li>IsRingActive:<strong>bool</strong> - Set\get the ring activation</li>
-<li>IsVisible:<strong>bool</strong> - Set or get the visibility property</li>
+<li>MessageFontSize: <strong>double</strong> - The font size in the toast</li>
+<li>CornerRadius: <strong>CornerRadius</strong> - The toast corners</li>
+<li>MessageForeground: <strong>Brush</strong> - Toast text foreground</li>
+<li>Message: <strong>string</strong> - The popup text</li>
+<li>Background: <strong>Brush</strong> - Toast background</li>
+<li>IsRingEnabled: <strong>bool</strong> - Set\get the ring abilitation</li>
+<li>IsRingActive: <strong>bool</strong> - Set\get the ring activation</li>
+<li>IsVisible: <strong>bool</strong> - Set or get the visibility property</li>
 </ul>
 
 <h3>
@@ -236,9 +236,9 @@ values:Top, Bottom<br>
 <a id="methods-2" class="anchor" href="#methods-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
 
 <ul>
-<li>ShowPopupLoaderAsync(<strong>int</strong>:the animation time):<strong>Task</strong> (awaitable)</li>
-<li>ShowPopupLoaderAsync(<strong>string</strong>:The message, <strong>int</strong>:the animation time):<strong>Task</strong> (awaitable)</li>
-<li>HidePopupLoaderAsync(<strong>int</strong>:the animation time):<strong>Task</strong> (awaitable)</li>
+<li>ShowPopupLoaderAsync(<strong>int</strong>:the animation time): <strong>Task</strong> (awaitable)</li>
+<li>ShowPopupLoaderAsync(<strong>string</strong>:The message, <strong>int</strong>:the animation time): <strong>Task</strong> (awaitable)</li>
+<li>HidePopupLoaderAsync(<strong>int</strong>:the animation time): <strong>Task</strong> (awaitable)</li>
 </ul>
 
 <h3>
@@ -263,32 +263,32 @@ The buttons must be defined in the buttons style properties.</p>
 <a id="properties-3" class="anchor" href="#properties-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h3>
 
 <ul>
-<li>DewDialogType:<strong>enum</strong><br>
+<li>DewDialogType: <strong>enum</strong><br>
 values: OnlyTopBar (no buttons are showed), TopBarWithButtons (complete dialog window), TopBarAcceptButton (top bar with only right button), Nothing (only content)</li>
-<li>DialogTitle:<strong>string</strong> - Set\get the top bar text</li>
-<li>CloseGlyphForeground:<strong>SolidColorBrush</strong> - The X button foreground</li>
-<li>TopBarBackground:<strong>Brush</strong> - The top bar background</li>
-<li>TopBarForeground:<strong>SolidColorBrush</strong> - The top bar foreground</li>
-<li>ContentBackground:<strong>Brush</strong> - The content background</li>
-<li>Content:<strong>UIElement</strong> - The content's content ( :| )</li>
-<li>ButtonAreaBackground:<strong>Brush</strong> - The button area background</li>
-<li>LeftButtonStyle:<strong>Style</strong> - Define the content and the button's style</li>
-<li>RightButtonStyle:<strong>Style</strong> - Define the content and the button's style</li>
-<li>IsVisible:<strong>bool</strong> - Set\get the control's visibility</li>
-<li>IsTopBarVisible:<strong>bool</strong> - Set\get the top bar visibility</li>
-<li>IsButtonAreaVisibile:<strong>bool</strong> - Set\get the buttons bar visibility</li>
-<li>IsLeftButtonVisible:<strong>bool</strong> - Set\get the left button visibility</li>
+<li>DialogTitle: <strong>string</strong> - Set\get the top bar text</li>
+<li>CloseGlyphForeground: <strong>SolidColorBrush</strong> - The X button foreground</li>
+<li>TopBarBackground: <strong>Brush</strong> - The top bar background</li>
+<li>TopBarForeground: <strong>SolidColorBrush</strong> - The top bar foreground</li>
+<li>ContentBackground: <strong>Brush</strong> - The content background</li>
+<li>Content: <strong>UIElement</strong> - The content's content ( :| )</li>
+<li>ButtonAreaBackground: <strong>Brush</strong> - The button area background</li>
+<li>LeftButtonStyle: <strong>Style</strong> - Define the content and the button's style</li>
+<li>RightButtonStyle: <strong>Style</strong> - Define the content and the button's style</li>
+<li>IsVisible: <strong>bool</strong> - Set\get the control's visibility</li>
+<li>IsTopBarVisible: <strong>bool</strong> - Set\get the top bar visibility</li>
+<li>IsButtonAreaVisibile: <strong>bool</strong> - Set\get the buttons bar visibility</li>
+<li>IsLeftButtonVisible: <strong>bool</strong> - Set\get the left button visibility</li>
 </ul>
 
 <h3>
 <a id="events-3" class="anchor" href="#events-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h3>
 
 <ul>
-<li>LeftButtonTapped:<strong>TappedEventHandler(object: Content,TappedRoutedEventArgs)</strong>
+<li>LeftButtonTapped: <strong>TappedEventHandler(object: Content,TappedRoutedEventArgs)</strong>
 </li>
-<li>RightButtonTapped:<strong>TappedEventHandler(object: Content ,TappedRoutedEventArgs)</strong>
+<li>RightButtonTapped: <strong>TappedEventHandler(object: Content ,TappedRoutedEventArgs)</strong>
 </li>
-<li>CloseButtonTapped:<strong>TappedEventHandler(object: Content ,TappedRoutedEventArgs)</strong>
+<li>CloseButtonTapped: <strong>TappedEventHandler(object: Content ,TappedRoutedEventArgs)</strong>
 </li>
 <li>DialogOpening: <strong>OpenEventHandler(object: Content)</strong>
 </li>
@@ -298,8 +298,8 @@ values: OnlyTopBar (no buttons are showed), TopBarWithButtons (complete dialog w
 <a id="methods-3" class="anchor" href="#methods-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
 
 <ul>
-<li>ShowDialogAsync(<strong>int</strong>:the animation time):<strong>Task</strong> (awaitable)</li>
-<li>HideDialogAsync(<strong>int</strong>:the animation time):<strong>Task</strong> (awaitable)</li>
+<li>ShowDialogAsync(<strong>int</strong>:the animation time): <strong>Task</strong> (awaitable)</li>
+<li>HideDialogAsync(<strong>int</strong>:the animation time): <strong>Task</strong> (awaitable)</li>
 </ul>
 
 <h3>
@@ -366,14 +366,14 @@ This property is in mutual exclusion with <strong>FlyoutItemsSource</strong> whe
                            <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Right<span class="pl-pds">"</span></span>                            
                            <span class="pl-e">FlyoutWidth</span>=<span class="pl-s"><span class="pl-pds">"</span>250<span class="pl-pds">"</span></span>
                            <span class="pl-e">FlyoutMaxHeight</span>=<span class="pl-s"><span class="pl-pds">"</span>500<span class="pl-pds">"</span></span>&gt;
-            &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.FloatButtonContent&gt;
+            &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.DewFloatButtonContent&gt;
                 &lt;<span class="pl-ent">FontIcon</span> <span class="pl-e">Glyph</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">&amp;#xE109;</span><span class="pl-pds">"</span></span> <span class="pl-e">Foreground</span>=<span class="pl-s"><span class="pl-pds">"</span>WhiteSmoke<span class="pl-pds">"</span></span> &gt;&lt;/<span class="pl-ent">FontIcon</span>&gt;
-            &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.FloatButtonContent&gt;
-            &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.FloatButtonListView&gt;
+            &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.DewFloatButtonContent&gt;
+            &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.DewFloatButtonListView&gt;
                 &lt;<span class="pl-ent">TextBlock</span>&gt;
                     Mmm, I want just a text in here
                 &lt;/<span class="pl-ent">TextBlock</span>&gt;
-            &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.FloatButtonListView&gt;
+            &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.DewFloatButtonListView&gt;
         &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>&gt;</pre></div>
 
 <p>There are also a lot of properties that work with the default ListView and, obviously if you set them are unuseful if you user your stuff in <strong>FloatButtonListView</strong>.</p>
@@ -413,9 +413,9 @@ The default ListView works in differents ways. You can set those ways through th
                            <span class="pl-e">IsAnimationActive</span>=<span class="pl-s"><span class="pl-pds">"</span>True<span class="pl-pds">"</span></span>
                            <span class="pl-e">ItemTextHorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Right<span class="pl-pds">"</span></span>
                            &gt;
-            &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.FloatButtonContent&gt;
+            &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.DewFloatButtonContent&gt;
                 &lt;<span class="pl-ent">FontIcon</span> <span class="pl-e">Glyph</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">&amp;#xE109;</span><span class="pl-pds">"</span></span> <span class="pl-e">Foreground</span>=<span class="pl-s"><span class="pl-pds">"</span>WhiteSmoke<span class="pl-pds">"</span></span> &gt;&lt;/<span class="pl-ent">FontIcon</span>&gt;
-            &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.FloatButtonContent&gt;
+            &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>.DewFloatButtonContent&gt;
 
         &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewFloatButton</span>&gt;</pre></div>
 
@@ -423,15 +423,15 @@ The default ListView works in differents ways. You can set those ways through th
 <a id="properties-4" class="anchor" href="#properties-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h3>
 
 <ul>
-<li>CloseAfterSelectedEnum:<strong>enum</strong><br>
+<li>CloseAfterSelectedEnum: <strong>enum</strong><br>
 values: Yes, No</li>
-<li>SelectedEvidenceEnum:<strong>enum</strong><br>
+<li>SelectedEvidenceEnum: <strong>enum</strong><br>
 values: Yes, No</li>
 <li>DewFloatbuttonListView: <strong>UIElement</strong> - The container to show custom stuff</li>
 <li>DewFloatButtonContent: <strong>UIElement</strong> - The content of DewFloatButton button</li>
 <li>DewFloatButtonBackground: <strong>Brush</strong> - DewFloatButton button background</li>
-<li>FlyoutMaxHeight:<strong>double</strong> - The max height for DewFloatButton container</li>
-<li>ItemTextFontSize:<strong>double</strong> - The item text font size</li>
+<li>FlyoutMaxHeight: <strong>double</strong> - The max height for DewFloatButton container</li>
+<li>ItemTextFontSize: <strong>double</strong> - The item text font size</li>
 <li>ItemTextFontFamily: <strong>FontFamily</strong> - The item text font family</li>
 <li>ItemTextForeground: <strong>Brush</strong> - The item text foreground</li>
 <li>ItemTextBackground: <strong>Brush</strong> - The item text background</li>
@@ -439,24 +439,24 @@ values: Yes, No</li>
 <li>ItemBackground: <strong>Brush</strong> - The full item background</li>
 <li>FlyoutWidth: <strong>double</strong> - The width of DewFloatButton container</li>
 <li>ItemHeight: <strong>double</strong> - The item height</li>
-<li>FlyoutItemsSource: <strong>ICollection</strong> - The itemsource for default ListView</li>
-<li>ButtonStyle:<strong>Style</strong> - A custom style for DewFloatButton</li>
-<li>FlyoutStyle:<strong>Style</strong> - A custom style for flyout element (DewFloatButton container)</li>
-<li>IsAnimationActive:<strong>bool</strong> - True if you want animation for DewFloatButton, false if not</li>
-<li>IsOpened:<strong>bool</strong> - Return the state of DewFloatButton container</li>
-<li>SelectedEvidence:<strong>SelectedEvidenceEnum</strong> - Indicates if an item selected should be highlighted</li>
-<li>CloseAfterSelect:<strong>CloseAfterSelectedEnum</strong> - Indicates if DewFloatButton container must be closed after than an element has been selected</li>
+<li>FlyoutItemsSource: <strong>ICollection&lt;DewFloatButtonItem&gt;</strong> - The itemsource for default ListView</li>
+<li>ButtonStyle: <strong>Style</strong> - A custom style for DewFloatButton</li>
+<li>FlyoutStyle: <strong>Style</strong> - A custom style for flyout element (DewFloatButton container)</li>
+<li>IsAnimationActive: <strong>bool</strong> - True if you want animation for DewFloatButton, false if not</li>
+<li>IsOpened: <strong>bool</strong> - Return the state of DewFloatButton container</li>
+<li>SelectedEvidence: <strong>SelectedEvidenceEnum</strong> - Indicates if an item selected should be highlighted</li>
+<li>CloseAfterSelect: <strong>CloseAfterSelectedEnum</strong> - Indicates if DewFloatButton container must be closed after than an element has been selected</li>
 </ul>
 
 <h3>
 <a id="events-4" class="anchor" href="#events-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h3>
 
 <ul>
-<li>Tapped:<strong>TappedEventHandler(object: Content,TappedRoutedEventArgs)</strong>
+<li>Tapped: <strong>TappedEventHandler(object: Content,TappedRoutedEventArgs)</strong>
 </li>
-<li>DewFloatButtonClosed:<strong>Action()</strong>
+<li>DewFloatButtonClosed: <strong>Action()</strong>
 </li>
-<li>DewFloatButtonOpened:<strong>Action()</strong>
+<li>DewFloatButtonOpened: <strong>Action()</strong>
 </li>
 </ul>
 
@@ -464,7 +464,7 @@ values: Yes, No</li>
 <a id="methods-4" class="anchor" href="#methods-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h3>
 
 <ul>
-<li>CloseFlyout():<strong>void</strong>
+<li>CloseFlyout(): <strong>void</strong>
 </li>
 </ul>
 
@@ -479,6 +479,46 @@ values: Yes, No</li>
 <p><img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160819_0003.png" width="200">
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160819_0005.png" width="200">
 <img src="http://andrewdev.eu/wp-content/uploads/2016/08/wp_ss_20160819_0004.png" width="200"></p>
+
+<h2>
+<a id="list-selector" class="anchor" href="#list-selector" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List Selector</h2>
+
+<p>This is a simple control that show a list of item where you can check them.</p>
+
+<h3>
+<a id="properties-5" class="anchor" href="#properties-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Properties</h3>
+
+<ul>
+<li>CheckBoxBorderForeground: <strong>SolidColorBrush</strong> - The checkbox border foreground</li>
+<li>ContainerBackground: <strong>Bursh</strong> -  The container background</li>
+<li>Items: <strong>ICollection&lt;DewListSelectorItem&gt;</strong> - The list selector items</li>
+<li>SeparatorForeground: <strong>SolidColorBrush</strong> - The item SeparatorForeground</li>
+<li>TextListForeground: <strong>SolidColorBrush</strong> - The list items foreground</li>
+<li>TextTitleForeground: <strong>SolidColorBrush</strong> - The title foreground</li>
+<li>TextTitle: <strong>string</strong> - The title</li>
+</ul>
+
+<h3>
+<a id="events-5" class="anchor" href="#events-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Events</h3>
+
+<ul>
+<li>OnChecked: <strong>TappedEventHandler</strong> - Fired after the item has changed value</li>
+</ul>
+
+<h3>
+<a id="example-5" class="anchor" href="#example-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">tk</span><span class="pl-ent">:</span><span class="pl-ent">DropShadowPanel</span> <span class="pl-e">ShadowOpacity</span>=<span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span> <span class="pl-e">BlurRadius</span>=<span class="pl-s"><span class="pl-pds">"</span>10<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">VerticalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">OffsetX</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span> <span class="pl-e">OffsetY</span>=<span class="pl-s"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewListSelector</span> <span class="pl-e">OnChecked</span>=<span class="pl-s"><span class="pl-pds">"</span>listsel_OnChecked<span class="pl-pds">"</span></span> <span class="pl-e">Width</span>=<span class="pl-s"><span class="pl-pds">"</span>300<span class="pl-pds">"</span></span> <span class="pl-e">Height</span>=<span class="pl-s"><span class="pl-pds">"</span>Auto<span class="pl-pds">"</span></span> <span class="pl-e">HorizontalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">TextListForeground</span>=<span class="pl-s"><span class="pl-pds">"</span>#FF303030<span class="pl-pds">"</span></span> <span class="pl-e">ContainerBackground</span>=<span class="pl-s"><span class="pl-pds">"</span>WhiteSmoke<span class="pl-pds">"</span></span>
+                                        <span class="pl-e">SeparatorForeground</span>=<span class="pl-s"><span class="pl-pds">"</span>#FFC5C5C5<span class="pl-pds">"</span></span>
+                                        <span class="pl-e">VerticalAlignment</span>=<span class="pl-s"><span class="pl-pds">"</span>Center<span class="pl-pds">"</span></span> <span class="pl-e">x</span><span class="pl-e">:</span><span class="pl-e">Name</span>=<span class="pl-s"><span class="pl-pds">"</span>listsel<span class="pl-pds">"</span></span> <span class="pl-e">TitleText</span>=<span class="pl-s"><span class="pl-pds">"</span>New point of view<span class="pl-pds">"</span></span> <span class="pl-e">TextTitleForeground</span>=<span class="pl-s"><span class="pl-pds">"</span>#FF0E0E0E<span class="pl-pds">"</span></span> <span class="pl-e">CheckBoxBorderForeground</span>=<span class="pl-s"><span class="pl-pds">"</span>#FF323232<span class="pl-pds">"</span></span>&gt;
+                    &lt;/<span class="pl-ent">dc</span><span class="pl-ent">:</span><span class="pl-ent">DewListSelector</span>&gt;
+                &lt;/<span class="pl-ent">tk</span><span class="pl-ent">:</span><span class="pl-ent">DropShadowPanel</span>&gt;</pre></div>
+
+<h3>
+<a id="some-screens-4" class="anchor" href="#some-screens-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some screens</h3>
+
+<p><img src="http://andrewdev.eu/wp-content/uploads/2016/11/wp_ss_20161113_0001.png" width="200"></p>
 
 <h2>
 <a id="other-sources" class="anchor" href="#other-sources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other sources</h2>
@@ -497,25 +537,13 @@ values: Yes, No</li>
 <a id="some-docs" class="anchor" href="#some-docs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some docs</h3>
 
 <p><a href="http://www.andrewdev.eu">andrewdev</a></p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/andreabbondanza/DewControls/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/andreabbondanza/DewControls/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/andreabbondanza/DewControls"></a> is maintained by <a href="https://github.com/andreabbondanza">andreabbondanza</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/andreabbondanza">andreabbondanza</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
-  
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
