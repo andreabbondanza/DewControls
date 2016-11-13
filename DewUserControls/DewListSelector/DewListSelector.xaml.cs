@@ -24,6 +24,12 @@ namespace DewUserControls
     /// </summary>
     public sealed partial class DewListSelector : UserControl
     {
+        #region events
+        /// <summary>
+        /// List selected item event
+        /// </summary>
+        public new event TappedEventHandler OnChecked = null;
+        #endregion
         #region prodp
 
 
@@ -149,6 +155,7 @@ namespace DewUserControls
             string id = g.Tag as string;
             var item = this.Items.First(x => x.Id == id);
             item.IsChecked = !item.IsChecked;
+            this.OnChecked?.Invoke(sender, e);
         }
     }
 }
