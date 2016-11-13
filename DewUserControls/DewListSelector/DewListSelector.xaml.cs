@@ -28,7 +28,7 @@ namespace DewUserControls
         /// <summary>
         /// List selected item event
         /// </summary>
-        public new event TappedEventHandler OnChecked = null;
+        public event TappedEventHandler OnChecked = null;
         #endregion
         #region prodp
 
