@@ -317,6 +317,7 @@ values: Yes, No
 - SelectedEvidence: __SelectedEvidenceEnum__ - Indicates if an item selected should be highlighted
 - CloseAfterSelect: __CloseAfterSelectedEnum__ - Indicates if DewFloatButton container must be closed after than an element has been selected
 
+
 ### Events
 - Tapped: __TappedEventHandler(object: Content,TappedRoutedEventArgs)__
 - DewFloatButtonClosed: __Action()__
@@ -372,3 +373,6 @@ You can find controls on [nuget](https://www.nuget.org/packages/DewUserControls/
 
 ### Some docs
 [andrewdev](http://www.andrewdev.eu)
+
+## Donation
+[Help me to grow up, if you want](https://payPal.me/andreabbondanza)
