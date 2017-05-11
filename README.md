@@ -1,5 +1,7 @@
 # DEW CONTROLS
 
+# NOTE: This repository is no longer maintained
+
 ## About the controls
 This is a set of controls (hope to expand it soon) for __UWP__ platform.  
 I develop primarly on phone, desktop and tablet. Sincerely I don't know how these controls will approach on devices like __HoloLens__ or xbox-one.  
